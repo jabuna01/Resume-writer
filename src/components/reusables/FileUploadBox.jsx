@@ -1,21 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useDropzone } from "react-dropzone";
-
-const baseStyle = {
-  flex: 1,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  padding: "20px",
-  borderWidth: 2,
-  borderRadius: 2,
-  borderColor: "#eeeeee",
-  borderStyle: "dashed",
-  backgroundColor: "#fafafa",
-  color: "#bdbdbd",
-  outline: "none",
-  transition: "border .24s ease-in-out",
-};
+import { Button } from 'react-bootstrap';
 
 const focusedStyle = {
   borderColor: "#2196f3",
@@ -42,12 +27,12 @@ function dropBox() {
       },
       maxFiles: 1,
       noClick: true,
+      noKeyboard: true,
       onDrop: useCallback((file) => setFile(file[0]), []),
     });
 
   const style = useMemo(
     () => ({
-      ...baseStyle,
       ...(isFocused ? focusedStyle : {}),
       ...(isDragAccept ? acceptStyle : {}),
       ...(isDragReject ? rejectStyle : {}),
@@ -56,14 +41,14 @@ function dropBox() {
   );
 
   const uploadFile = () => {
-    if(file) console.log(file);
-  }
+    if (file) console.log(file);
+  };
 
   return {
     getRootProps,
     getInputProps,
     style,
-    uploadFile
+    uploadFile,
   };
 }
 
@@ -71,13 +56,26 @@ export default function FileUploadBox(props) {
   const { getRootProps, getInputProps, style, uploadFile } = dropBox();
 
   return (
-    <div className="container">
-      <div {...getRootProps({ style })}>
+    <div className="uploader">
+      <div className="uploader-wrapper" {...getRootProps({ style })}>
+        <img src="/doc-icon.svg" alt="icon" />
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <h3>Drag & drop your documents here.</h3>
+        <small className="text-muted mb-3">
+          Documents could be in pdf or docs format
+        </small>
+        <Button variant="secondary" type="submit" onClick={uploadFile}>
+          Upload
+        </Button>
       </div>
-
-      <button onClick={uploadFile}>Upload</button>
     </div>
+    // <div className="container">
+    //   <div {...getRootProps({ style })}>
+    //     <input {...getInputProps()} />
+    //     <p>Drag 'n' drop some files here, or click to select files</p>
+    //   </div>
+
+    //   <button onClick={uploadFile}>Upload</button>
+    // </div>
   );
 }

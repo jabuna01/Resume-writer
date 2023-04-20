@@ -1,5 +1,5 @@
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: 'Nunito', sans-serif;
 }
 
@@ -12,7 +12,9 @@ body {
 }
 a {
   color: $primary;
+  text-decoration: none;
   &:hover {
+    color: $primary;
     text-decoration: underline;
   }
 }

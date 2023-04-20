@@ -5,13 +5,41 @@
 .upload-container {
   background-color: $secondary;
   padding: 40px;
-  border-radius: 8px;
+  border-radius: 16px;
+  position: relative;
+  height: fit-content;
   .jd {
-    width: 50%;
+    width: 46%;
     h2,
     p,
     label {
       color: $background;
     }
   }
+  .uploader {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+    border-radius: 16px;
+    background-color: $background;
+    &-wrapper {
+      height: 100%;
+      border-radius: 8px;
+      border: 1.5px dashed $primary-dark;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        margin-bottom: 14px;
+      }
+    }
+  }
+}
+.proceed {
+  padding: 24px 0;
+  background-color: $primary-light2;
 }
