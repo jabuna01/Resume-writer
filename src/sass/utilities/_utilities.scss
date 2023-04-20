@@ -1,0 +1,73 @@
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.text-white {
+  color: $background;
+}
+.text-white2 {
+  color: $neutral-light3;
+}
+
+// buttons Styles
+
+.btn {
+  &.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: $background;
+    &:hover {
+      background-color: $primary-light1;
+      border-color: $primary-light1;
+      color: $primary-light2;
+    }
+    &:active {
+      background-color: $primary-dark;
+      border-color: $primary-dark;
+      color: $background;
+    }
+  }
+  &.btn-secondary {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: $background;
+    &:hover {
+      background-color: $secondary-light1;
+      border-color: $secondary-light1;
+      color: $secondary-light2;
+    }
+    &:active {
+      background-color: $secondary-dark;
+      border-color: $secondary-dark;
+      color: $background;
+    }
+  }
+  &.btn-info {
+    background-color: transparent;
+    border-color: $primary;
+    color: $primary;
+    &:hover {
+      background-color: $primary;
+      border-color: $primary;
+      color: $background;
+    }
+    &:active {
+      background-color: $primary-dark;
+      border-color: $primary-dark;
+      color: $background;
+    }
+  }
+}
