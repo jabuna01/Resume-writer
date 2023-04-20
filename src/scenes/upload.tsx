@@ -26,15 +26,27 @@ const Resume = () => {
                 <Form.Control as="textarea" rows={3} placeholder="Write your Job Discription" />
               </Form.Group>
             </div>
+            <div className="uploader">
+              <div className="uploader-wrapper">
+                <img src="/doc-icon.svg" alt="icon" />
+                <h3>Drag & drop your documents here.</h3>
+                <small className="text-muted mb-3">Documents could be in pdf or docs format</small>
+                <Button variant="secondary" type="submit">
+                  Upload
+                </Button>
+              </div>
+            </div>
           </div>
         </Container>
       </div>
       <div className="proceed">
         <Container>
-          <a href="www.google.com">Learn More</a>
-          <Button variant="primary" type="submit">
-            Build
-          </Button>
+          <div className="d-flex justify-content-between">
+            <a href="www.google.com">Learn More</a>
+            <Button variant="primary" type="submit">
+              Build
+            </Button>
+          </div>
         </Container>
       </div>
     </>
