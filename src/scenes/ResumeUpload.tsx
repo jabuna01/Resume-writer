@@ -12,7 +12,8 @@ const ResumeUpload = () => {
 
       <Row className="text-neutral ">Upload your Resume/CV</Row>
       <Row className="text-neutral ">
-        Upload your existing resume and let our tools and templates transform it into a stunning professional resume.
+        Upload your existing resume and let our tools and templates transform it into a stunning professional
+        resume.sdsd
       </Row>
     </div>
   );
