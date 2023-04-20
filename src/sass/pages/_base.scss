@@ -1,0 +1,18 @@
+body {
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+}
+
+//   FORM styling
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+a {
+  color: $primary;
+  &:hover {
+    text-decoration: underline;
+  }
+}

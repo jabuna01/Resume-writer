@@ -1,5 +1,17 @@
+.upload {
+  background-color: $primary;
+  padding-bottom: 56px;
+}
 .upload-container {
   background-color: $secondary;
   padding: 40px;
   border-radius: 8px;
+  .jd {
+    width: 50%;
+    h2,
+    p,
+    label {
+      color: $background;
+    }
+  }
 }

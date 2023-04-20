@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Col, Row, Form } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 
-const Login = () => {
+const Upload = () => {
   return (
     <>
       <Row className="login">
@@ -51,4 +51,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Upload;

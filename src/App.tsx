@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ResumeUpload from './scenes';
+import Resume from './scenes/upload';
 
 const App = () => {
-  return <ResumeUpload />;
+  return <Resume />;
 };
 
 export default App;
