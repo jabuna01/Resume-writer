@@ -1,0 +1,80 @@
+body {
+  overflow: hidden;
+}
+.login {
+  height: 100vh;
+  .brand-wrapper {
+    height: inherit;
+    padding: 75px 100px 50px 100px;
+    background-color: $primary;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .artboard {
+      height: 50vh;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .login-form {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > div {
+      width: 75%;
+    }
+  }
+  .divider {
+    width: 100%;
+    height: 1px;
+    margin: 32px 0;
+    background-color: $neutral-light2;
+    position: relative;
+    h6 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%);
+      background-color: $background;
+      padding: 8px;
+    }
+  }
+  .google {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    border-radius: 4px;
+    border: 1px solid $primary;
+    color: $primary;
+    width: fit-content;
+    cursor: pointer;
+    &-icon {
+      height: 48px;
+      width: 48px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary-light2;
+      font-weight: 600;
+      transition: background 200ms linear;
+    }
+    &:hover {
+      color: $background;
+      background: $primary;
+    }
+  }
+}
+.bottom {
+  height: 50px;
+  width: 100%;
+  background-color: $primary-light2;
+  position: absolute;
+  bottom: 0;
+}
