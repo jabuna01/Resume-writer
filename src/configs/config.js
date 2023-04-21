@@ -5,4 +5,4 @@ export const allowedFileFormats = {
         [],
 };
 
-export const serverUri = "http://172.16.4.163:8000";
+export const serverUri = "http://0.0.0.0:8000";
