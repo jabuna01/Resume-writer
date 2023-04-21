@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Row,
-  Col,
-  Form,
-  Button,
-  Dropdown,
-  DropdownButton,
-} from "react-bootstrap";
+import { Row, Col, Form, Button } from "react-bootstrap";
 
 const Landing = () => {
   return (
@@ -120,34 +113,76 @@ const Landing = () => {
           </div>
         </div>
         <div className="main-content">
-          <div className="header-info">
+          <div className="tab-title-block">
             <div>
-              <h2>Hi ! User Name</h2>
-              <div className="text-muted small">
-                Your resume has been parsed successfully.
-              </div>
-              <div className="mt-3">
-                Also you can edit it with our featured AI that will make your CV
-                even better. Try it !
-              </div>
+              <h3>Personal Information</h3>
+              <p className="sub-text">
+                This information will be placed at the top of your resume.
+              </p>
             </div>
-            <div className="d-flex" style={{ height: "38px" }}>
-              <Button variant="secondary" style={{ marginRight: "16px" }}>
-                Edit
-              </Button>
-              <DropdownButton
-                id="dropdown-basic-button"
-                title="Download"
-                variant="primary"
-              >
-                <Dropdown.Item href="#/action-1">pdf</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">docx</Dropdown.Item>
-              </DropdownButton>
-            </div>
+            <Button variant="secondary" disabled>
+              {" "}
+              Save and Continue
+            </Button>
           </div>
-          <div className="resume-block">
-            <div className="text-center">Ai Generated pdf doc comes here</div>
-          </div>
+          <Form className="form-wrapper">
+            <Row>
+              <Col md={6}>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>First Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter your First Name"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Role</Form.Label>
+                  <Form.Control type="text" placeholder="Enter your Role" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Contact Number</Form.Label>
+                  <Form.Control type="number" placeholder="name@example.com" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Github Profile Link</Form.Label>
+                  <Form.Control
+                    type="link"
+                    placeholder="Paste your Github Profile Link"
+                  />
+                </Form.Group>
+              </Col>
+              <Col md={6}>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Last Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter your Last Name"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" placeholder="Enter your Role" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Contact Number</Form.Label>
+                  <Form.Control type="number" placeholder="name@example.com" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Github Profile Link</Form.Label>
+                  <Form.Control
+                    type="link"
+                    placeholder="Paste your Github Profile Link"
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+          </Form>
         </div>
       </div>
     </>

@@ -1,0 +1,21 @@
+.tab-title-block {
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+  h3 {
+    color: $primary-dark;
+    font-weight: 700;
+  }
+  .sub-text {
+    color: $neutral-dark1;
+  }
+}
+.form-wrapper {
+  padding: 0 40px;
+}

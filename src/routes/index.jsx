@@ -3,6 +3,7 @@ import LandingPage from "../components/pages/LandingPage";
 import Upload from "../scenes/upload";
 import Landing from "../scenes/landing";
 import Loading from "../scenes/loading";
+import Edit from "../scenes/edit-page";
 export const router = [
   {
     path: "/",
@@ -28,6 +29,11 @@ export const router = [
   {
     path: "/Design/loading",
     element: <Loading />,
+    public: true,
+  },
+  {
+    path: "/Design/edit",
+    element: <Edit />,
     public: true,
   },
 ];
