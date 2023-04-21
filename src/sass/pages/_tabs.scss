@@ -1,0 +1,89 @@
+.sider {
+  width: 250px;
+  height: 100vh;
+  box-shadow: 0px 16px 32px rgba(38, 54, 153, 0.04);
+  border-right: 1px solid $neutral-light2;
+  position: relative;
+  &-top {
+    background-color: $primary;
+    display: flex;
+    justify-content: center;
+    padding: 16px 24px;
+  }
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: calc(100vh - 63px);
+  }
+  .line {
+    width: 2px;
+    height: 515px;
+    background-color: $primary;
+    position: absolute;
+    top: 0;
+    left: 35px;
+    z-index: 0;
+  }
+  .tabs {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 32px;
+    z-index: 1;
+    position: relative;
+    background: transparent;
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 24px;
+      margin-bottom: 16px;
+      .icon {
+        .user {
+          display: none;
+        }
+      }
+      .label {
+        color: $neutral-dark1;
+        font-weight: 600;
+      }
+      &:hover {
+        .icon {
+          .bullet {
+            display: none;
+          }
+          .user {
+            display: block;
+          }
+        }
+        .label {
+          color: $neutral;
+        }
+      }
+      &.active {
+        background-color: $primary-light2;
+        .icon {
+          .bullet {
+            display: none;
+          }
+          .user {
+            display: block;
+          }
+        }
+        .label {
+          color: $primary;
+        }
+      }
+    }
+  }
+  .user-profile {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 8px;
+    border-top: 1px solid $neutral-light2;
+    .name {
+      @extend .small;
+    }
+  }
+}
