@@ -13,11 +13,11 @@ function App() {
     <>
       {authenticate() ? (
         <RouterProvider
-          router={createBrowserRouter(filterPublicRoutes(false))}
+          router={createBrowserRouter(filterPublicRoutes(true))}
         />
       ) : (
         <RouterProvider
-          router={createBrowserRouter(filterPublicRoutes(true))}
+          router={createBrowserRouter(filterPublicRoutes(false))}
         />
       )}
     </>
