@@ -1,0 +1,285 @@
+:root {
+  /* fonts */
+  --body-small: Nunito;
+  --font-open-sans: "Open Sans";
+  --font-inherit: inherit;
+
+  /* font sizes */
+  --body-small-size: 14px;
+  --font-size-xs: 12px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-steelblue: #2074b9;
+  --neutral-background-1: #e1e2e6;
+  --neutral-text-2: #666e80;
+  --neutral-text-1: #17181a;
+
+  /* Gaps */
+  --gap-mini: 15px;
+  --gap-5xs: 8px;
+
+  /* Paddings */
+  --padding-5xl: 24px;
+  --padding-13xl: 32px;
+  --padding-base: 16px;
+}
+.resume-template {
+  position: relative;
+  .aashish-shakaya,
+  .nlp-engineer {
+    position: relative;
+  }
+  .nlp-engineer {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--neutral-text-2);
+  }
+  .aashish-shakaya-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .div,
+  .emailfusemachinescom {
+    position: relative;
+    font-weight: 500;
+  }
+  .emailfusemachinescom {
+    text-decoration: underline;
+  }
+  .div {
+    color: var(--neutral-text-2);
+  }
+  .emailfusemachinescom-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: var(--font-size-xs);
+    color: var(--color-steelblue);
+  }
+  .frame-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .as-a-natural {
+    flex: 1;
+    position: relative;
+    font-weight: 500;
+  }
+  .as-a-natural-language-processi-wrapper {
+    align-self: stretch;
+    background-color: #f4faff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    padding: var(--padding-5xl) var(--padding-base);
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: var(--font-size-xs);
+    color: var(--neutral-text-2);
+  }
+  .frame-parent {
+    border-bottom: 1px solid var(--neutral-background-1);
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-13xl) 0 var(--padding-5xl);
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 0;
+    font-size: 27px;
+    color: #000;
+    padding-top: 70px;
+  }
+  .title {
+    position: relative;
+    font-size: var(--body-small-size);
+    text-transform: uppercase;
+    color: var(--color-steelblue);
+  }
+  .developed-natural-language {
+    margin-bottom: 4px;
+  }
+  .developed-natural-language-pro {
+    margin: 0;
+    padding-left: var(--padding-base);
+  }
+  .developed-natural-language-container {
+    position: relative;
+    font-size: var(--font-inherit);
+    font-family: var(--font-inherit);
+    color: var(--neutral-text-2);
+    display: inline-block;
+  }
+  .subtitle-parent,
+  .title-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+  }
+  .title-parent {
+    align-self: stretch;
+    border-bottom: 1px solid var(--neutral-background-1);
+    padding: var(--padding-13xl) 0 var(--padding-5xl);
+    gap: var(--gap-mini);
+    z-index: 1;
+    font-size: var(--font-size-xs);
+    color: var(--neutral-text-1);
+  }
+  .title1 {
+    position: relative;
+    text-transform: uppercase;
+  }
+  .link1-link-2-container {
+    position: relative;
+    text-decoration: underline;
+    display: inline-block;
+  }
+  .link1-link-2-wrapper,
+  .title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .link1-link-2-wrapper {
+    font-size: var(--font-inherit);
+    font-family: var(--font-inherit);
+  }
+  .title-group {
+    align-self: stretch;
+    border-bottom: 1px solid var(--neutral-background-1);
+    padding: var(--padding-13xl) 0 var(--padding-5xl);
+    gap: var(--gap-mini);
+    z-index: 2;
+  }
+  .subtitle2 {
+    position: relative;
+    color: var(--neutral-text-1);
+  }
+  .optimized-and-fine-tuned-container1 {
+    position: relative;
+    font-size: var(--font-inherit);
+    font-family: var(--font-inherit);
+    display: inline-block;
+  }
+  .title-container {
+    align-self: stretch;
+    border-bottom: 1px solid var(--neutral-background-1);
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-13xl) 0 var(--padding-5xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-mini);
+    z-index: 3;
+    font-size: var(--font-size-xs);
+    color: var(--neutral-text-2);
+  }
+  .natural-language-processing {
+    font-family: var(--font-open-sans);
+  }
+  .natural-language-processing-container {
+    position: relative;
+    display: inline-block;
+  }
+  .skill-lists {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: var(--font-inherit);
+    color: var(--neutral-text-2);
+  }
+  .title-parent1,
+  .title-parent2 {
+    border-bottom: 1px solid var(--neutral-background-1);
+    padding: var(--padding-13xl) 0 var(--padding-5xl);
+    gap: var(--gap-mini);
+  }
+  .title-parent1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 4;
+  }
+  .title-parent2 {
+    z-index: 5;
+  }
+  .subtitle-parent1,
+  .title-parent2,
+  .title-parent3 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .title-parent3 {
+    border-bottom: 1px solid var(--neutral-background-1);
+    padding: var(--padding-13xl) 0 var(--padding-5xl);
+    gap: var(--gap-mini);
+    z-index: 6;
+    font-size: var(--font-size-xs);
+    color: var(--neutral-text-2);
+  }
+  .logo-rev-1-icon {
+    position: relative;
+    width: 151.29px;
+    height: 24px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  .wwwfusemachinescom {
+    position: relative;
+    font-weight: 500;
+  }
+  .logo-rev-1-parent,
+  .resume-template {
+    overflow: hidden;
+    display: flex;
+    box-sizing: border-box;
+  }
+  .logo-rev-1-parent {
+    margin: 0 !important;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--color-steelblue);
+
+    flex-direction: row;
+    padding: var(--padding-base) var(--padding-5xl);
+    align-items: flex-start;
+    justify-content: space-between;
+    z-index: 7;
+    color: var(--color-white);
+    font-family: var(--body-small);
+  }
+  .resume-template {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    flex-direction: column;
+    padding: 56px var(--padding-5xl) var(--padding-13xl);
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: var(--body-small-size);
+    color: var(--color-steelblue);
+    font-family: var(--font-open-sans);
+  }
+}
