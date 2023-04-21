@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { allowedFileFormats } from "./constants";
+import { allowedFileFormats } from "../../configs/config";
 import { Button } from "react-bootstrap";
 
 const focusedStyle = {

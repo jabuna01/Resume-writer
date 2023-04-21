@@ -1,6 +1,6 @@
 import { useDropzone } from "react-dropzone";
 import { Button } from "react-bootstrap";
-import { allowedFileFormats } from "./constants";
+import { allowedFileFormats } from "../../configs/config";
 import { useCallback } from "react";
 
 export default function FileUploadButton(props) {

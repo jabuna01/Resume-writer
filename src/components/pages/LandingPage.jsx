@@ -1,7 +1,15 @@
 import { Container, Form, Button } from "react-bootstrap";
 import FileUploadBox from "../reusables/FileUploadBox";
+import { useState } from "react";
 
 export default function LandingPage() {
+  const [jobDescription, setJobDescription] = useState("");
+
+  const handleJobDescriptionChange = (e) => {
+    setJobDescription(e.target.value)
+    // console.log(jobDescription);
+  }
+
   return (
     <>
       <div className="content-wrapper">
@@ -35,6 +43,7 @@ export default function LandingPage() {
                     as="textarea"
                     rows={3}
                     placeholder="Write your Job Discription"
+                    onChange={handleJobDescriptionChange}
                   />
                 </Form.Group>
               </div>
@@ -43,7 +52,7 @@ export default function LandingPage() {
                 contentType={"documents"}
                 info={"Documents could be in pdf or docs format"}
               />
-              
+
             </div>
           </Container>
         </div>

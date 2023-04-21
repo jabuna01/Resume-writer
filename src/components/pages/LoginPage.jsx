@@ -1,6 +1,42 @@
+import { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import axios from "axios";
+import { serverUri } from "../../configs/config";
+import { setToken } from "../../services/authentication.service";
 
 export default function LoginPage() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleUserNameCHange = (e) => {
+    setUserName(e.target.value);
+    // console.log(userName);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    // console.log(password);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (userName === "" && password === "") {
+      return;
+    } else {
+      axios
+        .post(serverUri + "/api-token-auth/", {
+          username: userName,
+          password: password,
+        })
+        .then((response) => {
+          console.log(response);
+          setToken(response?.data?.token);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
     <>
       <Row className="login">
@@ -24,13 +60,21 @@ export default function LoginPage() {
             <div className="text-muted mb-4">Login to make your resume</div>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Username"
+                  onChange={handleUserNameCHange}
+                />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  onChange={handlePasswordChange}
+                />
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" onClick={handleSubmit}>
                 Login
               </Button>
               <div className="divider">
