@@ -3,10 +3,12 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { serverUri } from "../../configs/config";
 import { setToken } from "../../services/authentication.service";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const history = useNavigate();
 
   const handleUserNameCHange = (e) => {
     setUserName(e.target.value);
@@ -32,6 +34,7 @@ export default function LoginPage() {
         .then((response) => {
           console.log(response);
           setToken(response?.data?.token);
+          history("/landing-screen");
         })
         .catch((err) => console.log(err));
     }

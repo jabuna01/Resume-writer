@@ -13,12 +13,12 @@ export const router = [
   {
     path: "/landing-screen",
     element: <LandingPage />,
-    public: true,
+    public: false,
   },
   {
     path: "/home-screen",
     element: <HomePage />,
-    public: true,
+    public: false,
   },
   
   //Design Templates
