@@ -1,13 +1,23 @@
+.content-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+}
 .upload {
   background-color: $primary;
-  padding-bottom: 56px;
+  padding-bottom: 86px;
+  height: 100vh;
+  .container {
+    height: 100%;
+  }
 }
 .upload-container {
   background-color: $secondary;
   padding: 40px;
   border-radius: 16px;
   position: relative;
-  height: fit-content;
+  height: calc(100% - 300px);
+  margin-bottom: 86px;
+  min-height: 309px;
   .jd {
     width: 46%;
     h2,
@@ -38,15 +48,11 @@
       }
     }
   }
-<<<<<<< HEAD
 }
 .proceed {
   padding: 24px 0;
   background-color: $primary-light2;
-=======
->>>>>>> 06bc60ada47659e89a5ab13d0927cc912ae0ddc4
-}
-.proceed {
-  padding: 24px 0;
-  background-color: $primary-light2;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
