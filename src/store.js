@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from "./components/reducers/counterSlice";
-import personalInfoReducer from "./components/reducers/personalInfo"
+import apiResponseReducer from "./components/reducers/apiResponseReducer"
 
 
 export default configureStore({
   reducer:  {
     counter: counterReducer,
-    personalInfo: personalInfoReducer
+    apiResponse: apiResponseReducer
   },
 })

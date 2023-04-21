@@ -15,8 +15,8 @@ const rejectStyle = {
   borderColor: "#ff1744",
 };
 
-function dropBox() {
-  const [file, setFile] = useState(null);
+export default function FileUploadBox(props) {
+  const { contentType, info, setFile } = props;
 
   const {
     getRootProps,
@@ -41,19 +41,6 @@ function dropBox() {
     }),
     [isFocused, isDragAccept, isDragReject]
   );
-
-  return {
-    getRootProps,
-    getInputProps,
-    style,
-    file,
-    acceptedFiles,
-  };
-}
-
-export default function FileUploadBox(props) {
-  const { getRootProps, getInputProps, style, acceptedFiles } = dropBox();
-  const { contentType, info } = props;
 
   return (
     <div className="uploader">

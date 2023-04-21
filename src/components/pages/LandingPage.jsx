@@ -1,14 +1,40 @@
 import { Container, Form, Button } from "react-bootstrap";
 import FileUploadBox from "../reusables/FileUploadBox";
 import { useState } from "react";
+import { axiosWithAuth } from "../../services/authentication.service";
+import { serverUri } from "../../configs/config";
+import { useDispatch, useSelector } from "react-redux";
+import { setResponse } from "../reducers/apiResponseReducer";
+import { useNavigate } from "react-router-dom";
+import Loader from "../reusables/Loader";
 
 export default function LandingPage() {
   const [jobDescription, setJobDescription] = useState("");
+  const [file, setFile] = useState(null);
+
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.apiResponse.value);
+
+  const history = useNavigate();
 
   const handleJobDescriptionChange = (e) => {
-    setJobDescription(e.target.value)
-    // console.log(jobDescription);
-  }
+    setJobDescription(e.target.value);
+  };
+
+  const handleBuild = (e) => {
+    e.preventDefault();
+    axiosWithAuth
+      .postForm(serverUri + "/upload/", {
+        file: file,
+        // jobDescription: jobDescription
+      })
+      .then((response) => {
+        console.log(response);
+        dispatch(setResponse(response.data));
+        history("/home-screen");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -51,8 +77,8 @@ export default function LandingPage() {
               <FileUploadBox
                 contentType={"documents"}
                 info={"Documents could be in pdf or docs format"}
+                setFile={setFile}
               />
-
             </div>
           </Container>
         </div>
@@ -60,13 +86,13 @@ export default function LandingPage() {
           <Container>
             <div className="d-flex justify-content-between">
               <a href="www.google.com">Learn More</a>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" onClick={handleBuild}>
                 Build
               </Button>
             </div>
           </Container>
         </div>
-      </div>
+      </div>{" "}
     </>
   );
 }

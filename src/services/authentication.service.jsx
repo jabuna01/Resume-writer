@@ -1,6 +1,4 @@
-import { redirect, useLocation } from "react-router-dom";
 import axios from "axios";
-import { router } from "../routes/index";
 
 export const setToken = (token) => {
   try {
@@ -12,11 +10,6 @@ export const setToken = (token) => {
 
 export const clearToken = () => {
   localStorage.removeItem(Authorization);
-};
-
-export const filterPublicRoutes = (isPublic) => {
-  const routes = router.filter((route) => route.public === isPublic);
-  return routes;
 };
 
 export const authenticate = () => {
