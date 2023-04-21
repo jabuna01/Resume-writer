@@ -1,17 +1,25 @@
 import LoginPage from "../components/pages/LoginPage";
 import LandingPage from "../components/pages/LandingPage";
+// import AddProjectForm from "../components/pages/Personal-InformationPage";
 import Upload from "../scenes/upload";
 import Landing from "../scenes/landing";
 import Loading from "../scenes/loading";
 import Edit from "../scenes/edit-page";
 import HomePage from "../components/pages/HomePage";
-
+import AddProjectForm from "../components/pages/Projects-ExperiencePage";
+// AddProjectForm;
 export const router = [
   {
     path: "/",
     element: <LoginPage />,
     public: true,
   },
+  {
+    path: "/AddProjectForm",
+    element: <AddProjectForm />,
+    public: true,
+  },
+
   {
     path: "/landing-screen",
     element: <LandingPage />,
@@ -22,7 +30,7 @@ export const router = [
     element: <HomePage />,
     public: true,
   },
-  
+
   //Design Templates
   {
     path: "/Design/upload",
