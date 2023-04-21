@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { authenticate } from "./services/authentication.service";
 import { router } from "./routes";
-import './sass/style.scss';
+import "./sass/style.scss";
 
 const filterPublicRoutes = (isPublic) => {
   const routes = router.filter((route) => route.public === isPublic);
