@@ -122,7 +122,7 @@ const Landing = () => {
         <div className="main-content">
           <div className="header-info">
             <div>
-              <h1>Hi ! User Name</h1>
+              <h2>Hi ! User Name</h2>
               <div className="text-muted small">
                 Your resume has been parsed successfully.
               </div>

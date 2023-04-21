@@ -57,7 +57,7 @@
           }
         }
         .label {
-          color: $neutral;
+          color: $primary;
         }
       }
       &.active {
@@ -82,8 +82,12 @@
     padding: 10px 16px;
     gap: 8px;
     border-top: 1px solid $neutral-light2;
+    cursor: pointer;
     .name {
       @extend .small;
+    }
+    &:hover {
+      background-color: $neutral-light3;
     }
   }
 }
