@@ -4,6 +4,7 @@ import Upload from "../scenes/upload";
 import Landing from "../scenes/landing";
 import Loading from "../scenes/loading";
 import Edit from "../scenes/edit-page";
+import Education from "../scenes/education"
 import HomePage from "../components/pages/HomePage";
 
 export const router = [
@@ -42,6 +43,11 @@ export const router = [
   {
     path: "/Design/edit",
     element: <Edit />,
+    public: true,
+  },
+  {
+    path: "/Design/education",
+    element: <Education />,
     public: true,
   },
 ];
