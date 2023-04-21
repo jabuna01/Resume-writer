@@ -10,6 +10,6 @@ export const router = [
   {
     path: "/landing-screen",
     element: <LandingPage />,
-    public: true,
+    public: false,
   },
 ];
