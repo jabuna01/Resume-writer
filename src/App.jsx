@@ -5,9 +5,13 @@ import LoginPage from "./components/pages/LoginPage";
 import LandingPage from "./components/pages/LandingPage";
 import HomePage from "./components/pages/HomePage";
 
+import store from './store';
+import { Provider } from 'react-redux'
+
 function App() {
   return (
     <>
+    <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />}></Route>
@@ -24,6 +28,7 @@ function App() {
       {/* <Route path="/" element={<LoginPage/>}></Route> */}
         </Routes>
       </BrowserRouter>
+      </Provider>
     </>
   );
 }
