@@ -1,23 +1,17 @@
 import { useLocation } from "react-router-dom";
 
-const setToken = (tokenObj) => {
+export const setToken = (token) => {
   try {
-    localStorage.setItem(accessToken, tokenObj);
+    localStorage.setItem("Authorization", `Token ${token}`);
   } catch (e) {
     console.log("Local Store error", e);
   }
 };
 
-const clearToken = () => {
-  localStorage.removeItem(accessToken);
+export const clearToken = () => {
+  localStorage.removeItem(Authorization);
 };
 
-const authenticate = () => {
-//   const location = useLocation();
-
-//   const isAuthenticated = () => {};
-
+export const authenticate = () => {
   return true;
-};
-
-export { authenticate };
+}

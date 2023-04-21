@@ -4,6 +4,8 @@ import Upload from "../scenes/upload";
 import Landing from "../scenes/landing";
 import Loading from "../scenes/loading";
 import Edit from "../scenes/edit-page";
+import HomePage from "../components/pages/HomePage";
+
 export const router = [
   {
     path: "/",
@@ -15,6 +17,12 @@ export const router = [
     element: <LandingPage />,
     public: true,
   },
+  {
+    path: "/home-screen",
+    element: <HomePage />,
+    public: true,
+  },
+  
   //Design Templates
   {
     path: "/Design/upload",
