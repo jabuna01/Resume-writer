@@ -11,3 +11,7 @@ export const setToken = (token) => {
 export const clearToken = () => {
   localStorage.removeItem(Authorization);
 };
+
+export const authenticate = () => {
+  return true;
+}
