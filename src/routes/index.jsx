@@ -2,6 +2,7 @@ import LoginPage from "../components/pages/LoginPage";
 import LandingPage from "../components/pages/LandingPage";
 import Upload from "../scenes/upload";
 import Landing from "../scenes/landing";
+import Loading from "../scenes/loading";
 export const router = [
   {
     path: "/",
@@ -22,6 +23,11 @@ export const router = [
   {
     path: "/Design/landing",
     element: <Landing />,
+    public: true,
+  },
+  {
+    path: "/Design/loading",
+    element: <Loading />,
     public: true,
   },
 ];

@@ -19,7 +19,7 @@ const Landing = () => {
           <div className="line" />
           <div className="sider-content">
             <ul className="tabs">
-              <li className="tabs-item">
+              <li className="tabs-item active">
                 <div className="icon">
                   <div className="bullet">
                     <img src="/bullet.svg" alt="bullet" />

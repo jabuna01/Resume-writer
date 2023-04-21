@@ -19,7 +19,7 @@ const Landing = () => {
           <div className="line" />
           <div className="sider-content">
             <ul className="tabs">
-              <li className="tabs-item">
+              <li className="tabs-item active">
                 <div className="icon">
                   <div className="bullet">
                     <img src="/bullet.svg" alt="bullet" />
@@ -124,29 +124,20 @@ const Landing = () => {
             <div>
               <h2>Hi ! User Name</h2>
               <div className="text-muted small">
-                Your resume has been parsed successfully.
+                Your resume is parsing. Please wait for a while.
               </div>
-              <div className="mt-3">
-                Also you can edit it with our featured AI that will make your CV
-                even better. Try it !
-              </div>
-            </div>
-            <div className="d-flex" style={{ height: "38px" }}>
-              <Button variant="secondary" style={{ marginRight: "16px" }}>
-                Edit
-              </Button>
-              <DropdownButton
-                id="dropdown-basic-button"
-                title="Download"
-                variant="primary"
-              >
-                <Dropdown.Item href="#/action-1">pdf</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">docx</Dropdown.Item>
-              </DropdownButton>
             </div>
           </div>
-          <div className="resume-block">
-            <div className="text-center">Ai Generated pdf doc comes here</div>
+          <div className="animation">
+            <div className="loading-ani">
+              <img src="/resume-gif.gif" alt="loading-animation" />
+            </div>
+            <Button variant="info" className="mb-3">
+              Skip
+            </Button>
+            <p className="text-muted">
+              Press Skip button above to start editing by yourself.
+            </p>
           </div>
         </div>
       </div>
