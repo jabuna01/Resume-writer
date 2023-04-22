@@ -45,9 +45,14 @@
   .emailfusemachinescom {
     position: relative;
     font-weight: 500;
+    color: var(--color-steelblue);
   }
   .emailfusemachinescom {
     text-decoration: underline;
+  }
+
+  .certificate-link {
+    color: var(--color-steelblue);
   }
   .div {
     color: var(--neutral-text-2);
@@ -104,7 +109,17 @@
     position: relative;
     font-size: var(--body-small-size);
     text-transform: uppercase;
+    padding-bottom: 8px;
     color: var(--color-steelblue);
+  }
+  .title:after {
+    content: "";
+    background: var(--color-steelblue);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 30px;
   }
   .developed-natural-language {
     margin-bottom: 4px;

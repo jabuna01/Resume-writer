@@ -15,6 +15,7 @@ import TrainingPage from "./components/pages/TrainingsPage";
 
 import WorkExperiencePage from "./components/pages/Work-ExperiencePage";
 import SkillsPage from "./components/pages/SkillsPage";
+import Landing from "./scenes/landing";
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LoginPage />}></Route>
+            <Route path="/cv" element={<Landing />}></Route>
             <Route
               exact
               path="/landing-screen"
@@ -58,11 +60,7 @@ function App() {
             <Route
               path="/skills-screen"
               element={
-                authenticate() ? (
-                  <SkillsPage />
-                ) : (
-                  <Navigate replace to={"/"} />
-                )
+                authenticate() ? <SkillsPage /> : <Navigate replace to={"/"} />
               }
             ></Route>
             <Route

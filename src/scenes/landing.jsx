@@ -7,8 +7,10 @@ import {
   Dropdown,
   DropdownButton,
 } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 
 const Landing = () => {
+  const data = useSelector((state) => state?.apiResponse?.response);
   return (
     <>
       <div className="content-wrapper content">
@@ -147,219 +149,192 @@ const Landing = () => {
           </div>
           <div className="resume-block">
             <div class="resume-template">
+              {/* Personal Information */}
               <div class="frame-parent">
                 <div class="frame-group">
                   <div class="aashish-shakaya-parent">
-                    <b class="aashish-shakaya">Aashish Shakaya</b>
-                    <div class="nlp-engineer">NLP Engineer</div>
+                    <b class="aashish-shakaya">
+                      {data.personal_information?.name}
+                    </b>
+                    <div class="nlp-engineer">
+                      {data?.personal_information?.title}
+                    </div>
                   </div>
                   <div class="emailfusemachinescom-parent">
                     <div class="emailfusemachinescom">
-                      email@fusemachines.com
+                      <a
+                        class="emailfusemachinescom"
+                        href={`mailto:${data?.personal_information?.email}`}
+                        target="_blank"
+                      >
+                        {data?.personal_information?.email}
+                      </a>
                     </div>
                     <div class="div">|</div>
-                    <div class="emailfusemachinescom">LinkedIn</div>
+                    <div class="emailfusemachinescom">
+                      <a
+                        class="emailfusemachinescom"
+                        href={`https://${data?.personal_information?.linkedin}`}
+                        target="_blank"
+                      >
+                        LinkedIn
+                      </a>
+                    </div>
                     <div class="div">|</div>
-                    <div class="emailfusemachinescom">GitHub</div>
+                    <div class="emailfusemachinescom">
+                      <a
+                        class="emailfusemachinescom"
+                        href={`https://${data?.personal_information?.github}`}
+                        target="_blank"
+                      >
+                        GitHub
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div class="as-a-natural-language-processi-wrapper">
                   <div class="as-a-natural">
-                    As a Natural Language Processing (NLP) Engineer with four
-                    years of experience, I am passionate about developing
-                    innovative solutions that improve the way we interact with
-                    technology. My love for NLP technology has driven me to push
-                    boundaries and explore the limitless possibilities of
-                    machine learning and artificial intelligence.
+                    {data?.personal_statement?.description}
                   </div>
                 </div>
               </div>
-              <div class="title-parent">
-                <b class="title">Project Experience</b>
-                <div class="subtitle-parent">
-                  <b class="aashish-shakaya">Updating Fintechnews.com</b>
-                  <div class="developed-natural-language-container">
-                    <ul class="developed-natural-language-pro">
-                      <li class="developed-natural-language">
-                        Developed natural language processing (NLP) algorithms
-                        and models for text classification, sentiment analysis,
-                        and named entity recognition.
-                      </li>
-                      <li class="developed-natural-language">
-                        Worked on building chatbots and virtual assistants using
-                        NLP technologies, such as intent recognition and dialog
-                        management.
-                      </li>
-                      <li>
-                        Designed and implemented machine learning models for NLP
-                        tasks, such as topic modeling, summarization, and
-                        question answering.
-                      </li>
-                    </ul>
+
+              {/* Project experience */}
+              {data?.project_experience?.length > 0 && (
+                <div class="title-parent">
+                  <b class="title">Project Experience</b>
+                  {data?.project_experience?.map((project) => (
+                    <div class="subtitle-parent">
+                      <b class="aashish-shakaya">{project.project_name}</b>
+                      <div class="developed-natural-language-container">
+                        <ul class="developed-natural-language-pro">
+                          {project.project_description?.map((description) => (
+                            <li class="developed-natural-language">
+                              {description}
+                            </li>
+                          ))}
+
+                          <li class="developed-natural-language">
+                            <u>Technologies Used:</u>
+                            <ul>
+                              {project["tools/technologies"]?.map((tool) => (
+                                <li class="developed-natural-language">
+                                  {tool}
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Certifications */}
+              {data?.certifications?.length > 0 && (
+                <div class="title-group">
+                  <b class="title">Certifications</b>
+                  <div class="link1-link-2-wrapper">
+                    <div class="link1-link-2-container">
+                      <ul class="developed-natural-language-pro">
+                        {data?.certifications?.map((certificate) => (
+                          <li>
+                            <a
+                              className="certificate-link"
+                              href={certificate.certification_link}
+                              target="_blank"
+                            >
+                              {certificate.certification_name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                <div class="subtitle-parent">
-                  <b class="aashish-shakaya">Updating Fintechnews.com</b>
-                  <div class="developed-natural-language-container">
-                    <ul class="developed-natural-language-pro">
-                      <li class="developed-natural-language">
-                        Optimized and fine-tuned NLP models for performance and
-                        accuracy, using techniques such as hyperparameter tuning
-                        and feature engineering.
-                      </li>
-                      <li>
-                        Collaborated with cross-functional teams, such as data
-                        scientists, software engineers, and product managers, to
-                        integrate NLP models into applications and systems, such
-                        as customer service platforms or e-commerce websites.
-                      </li>
-                    </ul>
+              )}
+
+              {/* Work experience */}
+              {data.work_experience?.length > 0 && (
+                <div class="title-container">
+                  <b class="title">Work experience</b>
+
+                  {data.work_experience?.map((experience) => (
+                    <div class="subtitle-parent">
+                      <b class="subtitle2">
+                        {experience.job_title}, {experience.company}
+                      </b>
+                      <div class="aashish-shakaya">
+                        {experience.start_date} - {experience.end_date}
+                      </div>
+                      <div class="optimized-and-fine-tuned-container1">
+                        <ul class="developed-natural-language-pro">
+                          {experience.descriptions?.map((description) => (
+                            <li class="developed-natural-language">
+                              {description}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Skills */}
+              {data.skills?.length > 0 && (
+                <div class="title-parent1">
+                  <b class="title">Skills</b>
+                  <div class="skill-lists">
+                    <div class="natural-language-processing-container">
+                      <ul class="developed-natural-language-pro">
+                        {data.skills?.map((skill) => (
+                          <li class="developed-natural-language">
+                            <b class="natural-language-processing">{skill}</b>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="title-group">
-                <b class="title">Certifications</b>
-                <div class="link1-link-2-wrapper">
-                  <div class="link1-link-2-container">
-                    <ul class="developed-natural-language-pro">
-                      <li class="developed-natural-language">Link1</li>
-                      <li>Link 2</li>
-                    </ul>
+              )}
+
+              {/* Trannings */}
+              {data?.trainings.length > 0 && (
+                <div class="title-parent2">
+                  <b class="title">Trannings</b>
+                  <div class="link1-link-2-wrapper">
+                    <div class="link1-link-2-container">
+                      <ul class="developed-natural-language-pro">
+                        {data?.trainings?.map((training) => (
+                          <li class="developed-natural-language">
+                            {training.title}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="title-container">
-                <b class="title">Work experience</b>
-                <div class="subtitle-parent">
-                  <b class="subtitle2">Sr. NLP Engineer, ABC Company</b>
-                  <div class="aashish-shakaya">2020 - Present</div>
-                  <div class="optimized-and-fine-tuned-container1">
-                    <ul class="developed-natural-language-pro">
-                      <li class="developed-natural-language">
-                        Optimized and fine-tuned NLP models for performance and
-                        accuracy, using techniques such as hyperparameter tuning
-                        and feature engineering.
-                      </li>
-                      <li>
-                        Collaborated with cross-functional teams, such as data
-                        scientists, software engineers, and product managers, to
-                        integrate NLP models into applications and systems, such
-                        as customer service platforms or e-commerce websites.
-                      </li>
-                    </ul>
-                  </div>
+              )}
+
+              {/* Education */}
+              {data?.education?.length > 0 && (
+                <div class="title-parent3">
+                  <b class="title">Education</b>
+                  {data?.education?.map((education) => (
+                    <div class="subtitle-parent1">
+                      <b class="subtitle2">{education.degree}</b>
+                      <div class="aashish-shakaya">
+                        {education.university_name}
+                      </div>
+                      <div class="aashish-shakaya">
+                        {education.start_date} - {education.end_date}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div class="subtitle-parent">
-                  <b class="subtitle2">Sr. NLP Engineer, ABC Company</b>
-                  <div class="aashish-shakaya">2020 - Present</div>
-                  <div class="optimized-and-fine-tuned-container1">
-                    <ul class="developed-natural-language-pro">
-                      <li class="developed-natural-language">
-                        Optimized and fine-tuned NLP models for performance and
-                        accuracy, using techniques such as hyperparameter tuning
-                        and feature engineering.
-                      </li>
-                      <li>
-                        Collaborated with cross-functional teams, such as data
-                        scientists, software engineers, and product managers, to
-                        integrate NLP models into applications and systems, such
-                        as customer service platforms or e-commerce websites.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="title-parent1">
-                <b class="title">Skills</b>
-                <div class="skill-lists">
-                  <div class="natural-language-processing-container">
-                    <ul class="developed-natural-language-pro">
-                      <li class="developed-natural-language">
-                        <b class="natural-language-processing">
-                          Natural Language Processing (NLP) expertise:
-                        </b>
-                        <span>
-                          Demonstrating a deep understanding of NLP models and
-                          techniques, such as language modeling, sequence
-                          labeling, sentiment analysis, and machine translation.
-                        </span>
-                      </li>
-                      <li class="developed-natural-language">
-                        <b class="natural-language-processing">
-                          Programming languages:
-                        </b>
-                        <span class="natural-language-processing">
-                          Expertise in programming languages like Python, Java,
-                          and C++, which are commonly used in NLP development.
-                        </span>
-                      </li>
-                      <li class="developed-natural-language">
-                        <b class="natural-language-processing">
-                          Data structures and algorithms:
-                        </b>
-                        <span class="natural-language-processing">
-                          Strong understanding of data structures and algorithms
-                          is crucial for designing efficient NLP systems.
-                        </span>
-                      </li>
-                      <li class="developed-natural-language">
-                        <b class="natural-language-processing">
-                          Machine learning:
-                        </b>
-                        <span class="natural-language-processing">
-                          Familiarity with machine learning techniques,
-                          including supervised, unsupervised, and
-                          semi-supervised learning.
-                        </span>
-                      </li>
-                      <li class="developed-natural-language">
-                        <b class="natural-language-processing">
-                          Deep learning:
-                        </b>
-                        <span class="natural-language-processing">
-                          Experience in deep learning frameworks such as
-                          TensorFlow, Keras, and PyTorch, which are commonly
-                          used in NLP applications.
-                        </span>
-                      </li>
-                      <li>
-                        <b class="natural-language-processing">
-                          Statistical analysis:
-                        </b>
-                        <span class="natural-language-processing">
-                          Proficiency in statistical techniques for language
-                          processing, such as regression, clustering, and
-                          classification.
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="title-parent2">
-                <b class="title">Trannings</b>
-                <div class="link1-link-2-wrapper">
-                  <div class="link1-link-2-container">
-                    <ul class="developed-natural-language-pro">
-                      <li class="developed-natural-language">Link1</li>
-                      <li>Link 2</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="title-parent3">
-                <b class="title">Education</b>
-                <div class="subtitle-parent1">
-                  <b class="subtitle2">Education Title</b>
-                  <div class="aashish-shakaya">College name</div>
-                  <div class="aashish-shakaya">2020 - Present</div>
-                </div>
-                <div class="subtitle-parent1">
-                  <b class="subtitle2">Education Title</b>
-                  <div class="aashish-shakaya">College name</div>
-                  <div class="aashish-shakaya">2020 - Present</div>
-                </div>
-              </div>
+              )}
               <div class="logo-rev-1-parent">
                 <img
                   class="logo-rev-1-icon"
