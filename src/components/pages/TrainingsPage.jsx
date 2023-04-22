@@ -40,7 +40,7 @@ export default function TrainingPage() {
               Save and Continue
             </Button>
           </div>
-          <Button variant="info" onClick={handleAddTraining}>
+          <Button variant="info" className="mb-3" onClick={handleAddTraining}>
             + Add Trainings
           </Button>
           {form.map((index) => (
@@ -54,7 +54,7 @@ export default function TrainingPage() {
                     <Form.Label>Training Title</Form.Label>
                     <Form.Control
                       type="text"
-                      name = "title"
+                      name="title"
                       placeholder="Enter Training Title"
                     />
                   </Form.Group>
