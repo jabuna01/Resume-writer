@@ -3,11 +3,19 @@ import { createSlice } from '@reduxjs/toolkit';
 export const apiResponseReducer = createSlice({
     name: 'apiResponse',
     initialState: {
-        response: null
+        response: null,
+        resumeId: null,
+        psRecommendation: null
     },
     reducers: {
         setResponse: (state, action) => {
             state.response = action.payload
+        },
+        setResumeId: (state, action) => {
+            state.resumeId = action.payload
+        },
+        setPsRecommendation: (state, action) => {
+            state.psRecommendation = action.payload
         },
         updatePersonalInfo: (state, action) => {
             state.response.personal_information = action.payload
@@ -36,5 +44,5 @@ export const apiResponseReducer = createSlice({
     }
 })
 
-export const { setResponse, updatePersonalInfo, updatePersonalStatement, updateProjectsExperience, updateCertifications, updateWorkExperience, updateSkills, updateTrainings, updateEducation } = apiResponseReducer.actions
+export const { setResponse, setResumeId, setPsRecommendation, updatePersonalInfo, updatePersonalStatement, updateProjectsExperience, updateCertifications, updateWorkExperience, updateSkills, updateTrainings, updateEducation } = apiResponseReducer.actions
 export default apiResponseReducer.reducer

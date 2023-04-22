@@ -2,9 +2,9 @@ import { Container, Form, Button } from "react-bootstrap";
 import FileUploadBox from "../reusables/FileUploadBox";
 import { useState } from "react";
 import { axiosWithAuth } from "../../services/authentication.service";
-import { responseObj, serverUri } from "../../configs/config";
+import { responseObj, resumeId, serverUri } from "../../configs/config";
 import { useDispatch, useSelector } from "react-redux";
-import { setResponse } from "../reducers/apiResponseReducer";
+import { setResponse, setResumeId } from "../reducers/apiResponseReducer";
 import { useNavigate } from "react-router-dom";
 import Loader from "../reusables/Loader";
 
@@ -27,7 +27,8 @@ export default function LandingPage() {
 
     // setLoading(true);
 
-    dispatch(setResponse(responseObj));
+    dispatch(setResponse(responseObj.data));
+    dispatch(setResumeId(responseObj.id));
     history("/home-screen");
     
     // axiosWithAuth
