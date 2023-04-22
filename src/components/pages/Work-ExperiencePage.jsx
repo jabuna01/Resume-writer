@@ -7,22 +7,32 @@ import {
   ButtonGroup,
   ButtonToolbar,
 } from "react-bootstrap";
+import {  useSelector } from "react-redux";
 import { useState } from "react";
-
+import WorkExperienceList from "./workExperienceList";
 export default function WorkExperiencePage() {
   const [form, addForm] = useState([]);
-  const [workexperience, setWorkexperience] = useState([]);
+  const [work_experience, setWorkexperience] = useState([]);
+  const data = useSelector((state) => state.apiResponse.response.work_experience);
 
   const handleAddWorkexperience = (e) => {
     const element = form.length + 1;
     addForm([...form, element]);
   };
 
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(work_experience,"hello");
   };
 
   const handleSetWorkexperience = (e) => {};
+  const displayData = (data) => {
+    let work = [];
+    for (let obj of data) {
+      work.push(<WorkExperienceList obj={obj} />);
+    }
+    return work;
+  };
 
   return (
     <>
@@ -35,88 +45,14 @@ export default function WorkExperiencePage() {
               <h3>Work Experiences</h3>
               <p className="sub-text">Update your Work Experience Details</p>
             </div>
-            <Button variant="secondary" disabled>
+            <Button variant="secondary" onClick={handleSubmit}>
               {" "}
               Save and Continue
             </Button>
           </div>
-          <Button variant="info" onClick={handleAddWorkexperience}>
-            + Add Experience
-          </Button>
-          {form.map((index) => (
-            <Form className="form-wrapper" key={index}>
-              <Row>
-                <Col md={6}>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Label>Job title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter Job title"
-                      name="job_title"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Start Year</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter Start Year"
-                      name="start_date"
-                    />
-                  </Form.Group>
-                </Col>
-                <Col md={6}>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Label>Company Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter your Company Name"
-                      name="company"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3">
-                    <Form.Label>End Year</Form.Label>
-                    <Form.Control
-                      type="email"
-                      placeholder="Enter End Year"
-                      name="end_date"
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-              <Row>
-                <Col md={12}>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Enter your Job Description"
-                      name="descriptions"
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-              <div className="tab-title-block">
-                <div></div>
-                <ButtonToolbar>
-                  <ButtonGroup className="m-2">
-                    <Button variant="secondary"> Add</Button>
-                  </ButtonGroup>
-                  <ButtonGroup className="m-2">
-                    <Button variant="secondary"> Remove</Button>
-                  </ButtonGroup>
-                </ButtonToolbar>
-              </div>
-            </Form>
-          ))}
+        
+          {displayData(data)}
+    
         </div>
       </div>
     </>
