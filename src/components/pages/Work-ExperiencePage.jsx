@@ -27,8 +27,6 @@ export default function WorkExperiencePage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
-
         <div className="main-content">
           <div className="tab-title-block">
             <div>

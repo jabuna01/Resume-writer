@@ -27,8 +27,6 @@ export default function TrainingPage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
-
         <div className="main-content">
           <div className="tab-title-block">
             <div>
@@ -54,7 +52,7 @@ export default function TrainingPage() {
                     <Form.Label>Training Title</Form.Label>
                     <Form.Control
                       type="text"
-                      name = "title"
+                      name="title"
                       placeholder="Enter Training Title"
                     />
                   </Form.Group>

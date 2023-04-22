@@ -6,6 +6,7 @@ import Loading from "../scenes/loading";
 import Edit from "../scenes/edit-page";
 import HomePage from "../components/pages/HomePage";
 import Recommendation from "../scenes/ai_recommendation";
+import WorkExperiencePage from "../components/pages/Work-ExperiencePage";
 
 export const router = [
   {
@@ -21,6 +22,11 @@ export const router = [
   {
     path: "/home-screen",
     element: <HomePage />,
+    public: true,
+  },
+  {
+    path: "/work-experience-screen",
+    element: <WorkExperiencePage />,
     public: true,
   },
 

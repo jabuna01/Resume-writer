@@ -3,24 +3,25 @@ import SideNav from "../reusables/SideNav";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePersonalInfo } from "../reducers/apiResponseReducer";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+  const history = useNavigate();
   let data = useSelector(
-    (state) => state.apiResponse.response.personal_information
+    (state) => state?.apiResponse?.response?.personal_information
   );
+  // const data = useSelector((state) => state.apiResponse.response?.personalInfo);
 
   if (!data) {
-    data = useSelector((state) => state.apiResponse.response.personalInfo);
+    data = useSelector((state) => state.apiResponse?.response?.personalInfo);
   }
 
   const dispatch = useDispatch();
 
-  const [firstName, lastName] = data?.name.split(" ");
-
   const [personalInfo, setPersonalInfo] = useState({
-    name: data.name,
-    firstName: firstName,
-    lastName: lastName,
+    name: data?.name,
+    firstName: data?.firstName,
+    lastName: data?.lastName,
     role: data?.role,
     email: data?.email,
     contact: data?.contact,
@@ -32,15 +33,13 @@ export default function HomePage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = personalInfo.firstName + " " + personalInfo.lastName;
-    setPersonalInfo({...personalInfo, name: name});
-    dispatch(updatePersonalInfo(personalInfo));
+    dispatch(updatePersonalInfo({ ...personalInfo, name: name }));
+    history("/projects-experience-screen");
   };
 
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
-
         <div className="main-content">
           <div className="tab-title-block">
             <div>

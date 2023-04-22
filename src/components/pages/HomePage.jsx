@@ -10,8 +10,6 @@ export default function HomePage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
-
         <div className="main-content">
           <div className="header-info">
             <div>

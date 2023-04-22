@@ -1,23 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const resumeDataReducer = createSlice({
-    name: 'resumeData',
-    initialState: {
-        personal_information: null,
-        personal_statement: null,
-        project_experience: null,
-        education: null,
-        work_experience: null,
-        skills: null,
-        certifications: null,
-        trainings: null
+  name: "resumeData",
+  initialState: {
+    personal_information: {
+      name: null,
+      title: null,
+      email: null,
+      github: null,
+      linkedin: null,
     },
-    reducers: {
-        updatePersonalInfo: (state, action) => {
-            state.response = action.payload
-        },
-    }
-})
+    personal_statement: {
+      description: null,
+    },
+    project_experience: [],
+    education: [],
+    work_experience: [],
+    skills: [],
+    certifications: [],
+    trainings: [],
+  },
+  reducers: {
+    updatePersonalInfo: (state, action) => {
+      state.response = action.payload;
+    },
+  },
+});
 
-export const { setResumeData } = resumeDataReducer.actions
-export default resumeDataReducer.reducer
+export const { setResumeData } = resumeDataReducer.actions;
+export default resumeDataReducer.reducer;

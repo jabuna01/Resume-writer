@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 
 export default function CertificationPage() {
   const form = useSelector(
-    (state) => state.apiResponse.response.certifications
+    (state) => state?.apiResponse?.response?.certifications ?? []
   );
 
   const handleAddCertification = (e) => {
@@ -29,8 +29,6 @@ export default function CertificationPage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
-
         <div className="main-content">
           <div className="tab-title-block">
             <div>
@@ -42,9 +40,9 @@ export default function CertificationPage() {
               Save and Continue
             </Button>
           </div>
-          {/* <Button variant="info" onClick={handleAddCertification}>
+          <Button variant="info" onClick={handleAddCertification}>
             + Add Certifications
-          </Button> */}
+          </Button>
           {form.map((data, index) => (
             <Form className="form-wrapper" key={index}>
               <Row>

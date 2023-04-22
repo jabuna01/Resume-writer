@@ -15,87 +15,120 @@ import TrainingPage from "./components/pages/TrainingsPage";
 
 import WorkExperiencePage from "./components/pages/Work-ExperiencePage";
 import SkillsPage from "./components/pages/SkillsPage";
+import SideNav from "./components/reusables/SideNav";
+
 function App() {
   return (
     <>
       <Provider store={store}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LoginPage />}></Route>
-            <Route
-              exact
-              path="/landing-screen"
-              element={
-                authenticate() ? <LandingPage /> : <Navigate replace to={"/"} />
-              }
-            ></Route>
-            <Route
-              path="/home-screen"
-              element={
-                authenticate() ? <HomePage /> : <Navigate replace to={"/"} />
-              }
-            ></Route>
-            <Route
-              path="/personal-information-screen"
-              element={
-                authenticate() ? (
-                  <PersonalInformationPage />
-                ) : (
-                  <Navigate replace to={"/"} />
-                )
-              }
-            ></Route>
-            <Route
-              path="/projects-experience-screen"
-              element={
-                authenticate() ? (
-                  <ProjecstExperiencePage />
-                ) : (
-                  <Navigate replace to={"/"} />
-                )
-              }
-            ></Route>
-            <Route
-              path="/skills-screen"
-              element={
-                authenticate() ? (
-                  <SkillsPage />
-                ) : (
-                  <Navigate replace to={"/"} />
-                )
-              }
-            ></Route>
-            <Route
-              path="/educations-screen"
-              element={
-                authenticate() ? (
-                  <EducationPage />
-                ) : (
-                  <Navigate replace to={"/"} />
-                )
-              }
-            ></Route>
-            <Route
-              path="/certifications-screen"
-              element={
-                authenticate() ? (
-                  <CertificationPage />
-                ) : (
-                  <Navigate replace to={"/"} />
-                )
-              }
-            ></Route>
-            <Route
-              path="/trainings-screen"
-              element={
-                authenticate() ? (
-                  <TrainingPage />
-                ) : (
-                  <Navigate replace to={"/"} />
-                )
-              }
-            ></Route>
-          </Routes>
+          {authenticate() ? (
+            <>
+              <Routes>
+                <Route path="/" element={<LoginPage />}></Route>
+                <Route
+                  exact
+                  path="/landing-screen"
+                  element={
+                    authenticate() ? (
+                      <LandingPage />
+                    ) : (
+                      <Navigate replace to={"/"} />
+                    )
+                  }
+                ></Route>
+              </Routes>
+              <div className="content-wrapper content">
+                <SideNav />
+                <Routes>
+                  <Route
+                    path="/home-screen"
+                    element={
+                      authenticate() ? (
+                        <HomePage />
+                      ) : (
+                        <Navigate replace to={"/"} />
+                      )
+                    }
+                  ></Route>
+                  <Route
+                    path="/personal-information-screen"
+                    element={
+                      authenticate() ? (
+                        <PersonalInformationPage />
+                      ) : (
+                        <Navigate replace to={"/"} />
+                      )
+                    }
+                  ></Route>
+                  <Route
+                    path="/projects-experience-screen"
+                    element={
+                      authenticate() ? (
+                        <ProjecstExperiencePage />
+                      ) : (
+                        <Navigate replace to={"/"} />
+                      )
+                    }
+                  ></Route>
+                  <Route
+                    path="/skills-screen"
+                    element={
+                      authenticate() ? (
+                        <SkillsPage />
+                      ) : (
+                        <Navigate replace to={"/"} />
+                      )
+                    }
+                  ></Route>
+                  <Route
+                    path="/work-experience-screen"
+                    element={
+                      authenticate() ? (
+                        <WorkExperiencePage />
+                      ) : (
+                        <Navigate replace to={"/"} />
+                      )
+                    }
+                  ></Route>
+                  <Route
+                    path="/educations-screen"
+                    element={
+                      authenticate() ? (
+                        <EducationPage />
+                      ) : (
+                        <Navigate replace to={"/"} />
+                      )
+                    }
+                  ></Route>
+                  <Route
+                    path="/certifications-screen"
+                    element={
+                      authenticate() ? (
+                        <CertificationPage />
+                      ) : (
+                        <Navigate replace to={"/"} />
+                      )
+                    }
+                  ></Route>
+                  <Route
+                    path="/trainings-screen"
+                    element={
+                      authenticate() ? (
+                        <TrainingPage />
+                      ) : (
+                        <Navigate replace to={"/"} />
+                      )
+                    }
+                  ></Route>
+                </Routes>
+              </div>
+            </>
+          ) : (
+            <Routes>
+              <Route path="/" element={<LoginPage />}></Route>
+            </Routes>
+          )}
         </BrowserRouter>
       </Provider>
     </>

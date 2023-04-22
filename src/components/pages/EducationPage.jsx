@@ -15,7 +15,9 @@ import EducationList from "./educationlist";
 export default function EducationPage() {
   const [form, addForm] = useState([]);
   const [education, setEducation] = useState([]);
-  const data = useSelector((state) => state.apiResponse.response.education);
+  const data = useSelector(
+    (state) => state.apiResponse?.response?.education ?? []
+  );
 
   const handleAddEducation = (e) => {
     const element = form.length + 1;
@@ -56,8 +58,6 @@ export default function EducationPage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
-
         <div className="main-content">
           <div className="tab-title-block">
             <div>

@@ -27,17 +27,17 @@ export default function LoginPage() {
       history("/landing-screen");
     }
 
-    axios
-      .post(serverUri + "/api-token-auth/", {
-        username: userName,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response);
-        setToken(response?.data?.token);
-        return history("/landing-screen");
-      })
-      .catch((err) => console.log(err));
+    // axios
+    //   .post(serverUri + "/api-token-auth/", {
+    //     username: userName,
+    //     password: password,
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    setToken("response?.data?.token");
+    return history("/landing-screen");
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   return (
