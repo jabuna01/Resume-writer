@@ -25,7 +25,7 @@ export default function HomePage() {
                 even better. Try it !
               </div>
             </div>
-            <div className="d-flex" style={{ height: "38px" }}>
+            {/* <div className="d-flex" style={{ height: "38px" }}>
               <Button variant="secondary" style={{ marginRight: "16px" }}>
                 Edit
               </Button>
@@ -37,7 +37,7 @@ export default function HomePage() {
                 <Dropdown.Item href="#/action-1">pdf</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">docx</Dropdown.Item>
               </DropdownButton>
-            </div>
+            </div> */}
           </div>
           <div className="resume-block">
             <Landing />

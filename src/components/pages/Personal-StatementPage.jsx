@@ -4,28 +4,36 @@ import { Popover, OverlayTrigger, Form, Button } from "react-bootstrap";
 import { GoPlus } from "react-icons/go";
 import { useSelector, useDispatch } from "react-redux";
 import { axiosWithAuth } from "../../services/authentication.service";
-import { psRecommendation, responseObj } from "../../configs/config";
+import { psRecommendation, responseObj, serverUri } from "../../configs/config";
+import { updatePersonalStatement } from "../reducers/apiResponseReducer";
 
 export default function PersonalStatementPage() {
   const dispatch = useDispatch();
   const data = useSelector(
     (state) => state.apiResponse.response.personal_statement
   );
+  const resumeId = useSelector((state) => state.apiResponse.resumeId);
+
   const [statement, setStatement] = useState(data.description);
   const [recommendation, setRecommendation] = useState();
 
   useEffect(() => {
-    // axiosWithAuth
-    //   .post(serverUri + "ps-recommendation/", {
-    //     resume_data_id: responseObj.id,
-    //   })
-    //   .then()
-    //   .catch((err) => console.log(err));
+    axiosWithAuth
+      .post(serverUri + "/ps-recommendation/", {
+        resume_data_id: resumeId,
+      })
+      .then((res) => setRecommendation(res.data.rec_data.personal_statement))
+      .catch((err) => console.log(err));
 
-    setRecommendation(psRecommendation.rec_data.personal_statement);
+    // setRecommendation(psRecommendation.rec_data.personal_statement);
   }, []);
 
   console.log(recommendation);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(updatePersonalStatement(statement));
+  };
 
   return (
     <>
@@ -44,7 +52,7 @@ export default function PersonalStatementPage() {
                 tools, and major accomplishments.
               </p>
             </div>
-            <Button variant="secondary" className="text-nowrap">
+            <Button variant="secondary" className="text-nowrap" onClick={handleSubmit}>
               {" "}
               Save and Continue
             </Button>
@@ -57,7 +65,7 @@ export default function PersonalStatementPage() {
                 rows={3}
                 placeholder="Enter your Summary"
                 value={statement}
-                style={{resize: "none", minHeight: "200px"}}
+                style={{ resize: "none", minHeight: "200px" }}
               />
             </Form.Group>
           </Form>
@@ -70,18 +78,18 @@ export default function PersonalStatementPage() {
                 <Popover.Body>
                   <div className="label-title">Suggestion summaries</div>
                   <ul className="recomendation" id="style-3">
-                    {
-                    recommendation && recommendation.map((data, index) => (
-                      <li className="recomendation-item">
-                      <Button variant="outline-secondary" onClick={() => setStatement(data)}>
-                        <GoPlus />
-                      </Button>
-                      <div>
-                        {data}
-                      </div>
-                    </li>
-                    ))}
-                  
+                    {recommendation &&
+                      recommendation.map((data, index) => (
+                        <li className="recomendation-item">
+                          <Button
+                            variant="outline-secondary"
+                            onClick={() => setStatement(data)}
+                          >
+                            <GoPlus />
+                          </Button>
+                          <div>{data}</div>
+                        </li>
+                      ))}
                   </ul>
                 </Popover.Body>
               </Popover>

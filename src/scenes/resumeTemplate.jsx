@@ -15,7 +15,7 @@ const Landing = () => {
                   {data?.personal_information?.name}
                 </b>
                 <div class="nlp-engineer">
-                  {data?.personal_information?.title}
+                  {data?.personal_information?.role}
                 </div>
               </div>
               <div class="emailfusemachinescom-parent">
@@ -52,7 +52,7 @@ const Landing = () => {
             </div>
             <div class="as-a-natural-language-processi-wrapper">
               <div class="as-a-natural">
-                {data?.personal_statement?.description}
+                {data?.personal_statement}
               </div>
             </div>
           </div>

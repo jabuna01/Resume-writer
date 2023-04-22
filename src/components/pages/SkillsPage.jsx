@@ -41,7 +41,7 @@ export default function SkillsPage() {
 
           <ul class="list-bullets">
           {form.map((data, index) => (
-            <li class="mb-2">{data}</li>
+            <li class="mb-2" key={index}>{data}</li>
           ))}
           </ul>
         </div>

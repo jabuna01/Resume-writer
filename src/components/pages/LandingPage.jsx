@@ -25,26 +25,27 @@ export default function LandingPage() {
   const handleBuild = (e) => {
     e.preventDefault();
 
-    // setLoading(true);
+    setLoading(true);
 
-    dispatch(setResponse(responseObj.data));
-    dispatch(setResumeId(responseObj.id));
-    history("/home-screen");
+    // dispatch(setResponse(responseObj.data));
+    // dispatch(setResumeId(responseObj.id));
+    // history("/home-screen");
     
-    // axiosWithAuth
-    //   .postForm(serverUri + "/upload/", {
-    //     file: file,
-    //     jd: jobDescription
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setLoading(false);
+    axiosWithAuth
+      .postForm(serverUri + "/upload/", {
+        file: file,
+        jd: jobDescription
+      })
+      .then((response) => {
+        console.log(response.data);
+        setLoading(false);
 
-    //     dispatch(setResponse(response.data));
-    //     // dispatch(setDataToLocalStorage(response.data));
-    //     history("/home-screen");
-    //   })
-    //   .catch((err) => console.log(err));
+        dispatch(setResponse(response.data.data));
+        dispatch(setResumeId(response.data.id));
+        // dispatch(setDataToLocalStorage(response.data));
+        history("/home-screen");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

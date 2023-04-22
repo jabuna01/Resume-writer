@@ -23,6 +23,12 @@ function App() {
           <Routes>
             <Route path="/" element={<LoginPage />}></Route>
             <Route
+              path="/landing-screen"
+              element={
+                authenticate() ? <LandingPage /> : <Navigate replace to={"/"} />
+              }
+            ></Route>
+            <Route
               path="/home-screen"
               element={
                 authenticate() ? <HomePage /> : <Navigate replace to={"/"} />
