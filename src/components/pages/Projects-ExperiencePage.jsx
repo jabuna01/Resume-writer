@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import SideNav from "../reusables/SideNav";
 
-const AddProjectForm = () => {
-  const [showForm, setShowForm] = useState(false);
+export default function ProjecstExperiencePage() {
+  const [form, addForm] = useState([]);
+
+  const handleAddProjectExperience = (e) => {
+    const element = form.length + 1;
+    addForm([...form, element]);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,113 +17,7 @@ const AddProjectForm = () => {
   return (
     <>
       <div className="content-wrapper content">
-        <div className="sider">
-          <div className="sider-top">
-            <img src="/logo small.svg" alt="brand" />
-          </div>
-          <div className="line" />
-          <div className="sider-content">
-            <ul className="tabs">
-              <li className="tabs-item active">
-                <div className="icon">
-                  <div className="bullet">
-                    <img src="/bullet.svg" alt="bullet" />
-                  </div>
-                  <div className="user">
-                    <img src="/user.svg" alt="user-icon" />
-                  </div>
-                </div>
-                <div className="label">Personal Information</div>
-              </li>
-              <li className="tabs-item">
-                <div className="icon">
-                  <div className="bullet">
-                    <img src="/bullet.svg" alt="bullet" />
-                  </div>
-                  <div className="user">
-                    <img src="/user.svg" alt="user-icon" />
-                  </div>
-                </div>
-                <div className="label">Personal Statement</div>
-              </li>
-              <li className="tabs-item">
-                <div className="icon">
-                  <div className="bullet">
-                    <img src="/bullet.svg" alt="bullet" />
-                  </div>
-                  <div className="user">
-                    <img src="/user.svg" alt="user-icon" />
-                  </div>
-                </div>
-                <div className="label">Projects Expereince</div>
-              </li>
-              <li className="tabs-item">
-                <div className="icon">
-                  <div className="bullet">
-                    <img src="/bullet.svg" alt="bullet" />
-                  </div>
-                  <div className="user">
-                    <img src="/user.svg" alt="user-icon" />
-                  </div>
-                </div>
-                <div className="label">Certifications</div>
-              </li>
-              <li className="tabs-item">
-                <div className="icon">
-                  <div className="bullet">
-                    <img src="/bullet.svg" alt="bullet" />
-                  </div>
-                  <div className="user">
-                    <img src="/user.svg" alt="user-icon" />
-                  </div>
-                </div>
-                <div className="label">Work Expereince</div>
-              </li>
-              <li className="tabs-item">
-                <div className="icon">
-                  <div className="bullet">
-                    <img src="/bullet.svg" alt="bullet" />
-                  </div>
-                  <div className="user">
-                    <img src="/user.svg" alt="user-icon" />
-                  </div>
-                </div>
-                <div className="label">Skills</div>
-              </li>
-              <li className="tabs-item">
-                <div className="icon">
-                  <div className="bullet">
-                    <img src="/bullet.svg" alt="bullet" />
-                  </div>
-                  <div className="user">
-                    <img src="/user.svg" alt="user-icon" />
-                  </div>
-                </div>
-                <div className="label">Trannings</div>
-              </li>
-              <li className="tabs-item">
-                <div className="icon">
-                  <div className="bullet">
-                    <img src="/bullet.svg" alt="bullet" />
-                  </div>
-                  <div className="user">
-                    <img src="/user.svg" alt="user-icon" />
-                  </div>
-                </div>
-                <div className="label">Project</div>
-              </li>
-            </ul>
-            <div className="user-profile">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                class="rounded-circle"
-                style={{ width: "36px" }}
-                alt="Avatar"
-              />
-              <div className="name">Fatimah Camacho</div>
-            </div>
-          </div>
-        </div>
+        <SideNav />
         <div className="main-content">
           <div className="tab-title-block">
             <div>
@@ -129,11 +29,11 @@ const AddProjectForm = () => {
               Save and Continue
             </Button>
           </div>
-          <Button variant="info" onClick={() => setShowForm(true)}>
-            + Add Educations
+          <Button variant="info" onClick={handleAddProjectExperience}>
+            + Add Projects
           </Button>
-          {showForm && (
-            <Form className="form-wrapper">
+          {form.map((index) => (
+            <Form className="form-wrapper" key={index}>
               <Row>
                 <Col md={6}>
                   <Form.Group
@@ -150,10 +50,7 @@ const AddProjectForm = () => {
                     controlId="exampleForm.ControlInput1"
                   >
                     <Form.Label>Tool Used</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Text"
-                    />
+                    <Form.Control type="text" placeholder="Text" />
                   </Form.Group>
                 </Col>
               </Row>
@@ -179,11 +76,9 @@ const AddProjectForm = () => {
                 </Button>
               </div>
             </Form>
-          )}
+          ))}
         </div>
       </div>
     </>
   );
-};
-
-export default AddProjectForm;
+}

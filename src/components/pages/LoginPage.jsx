@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { serverUri } from "../../configs/config";
-import { setToken } from "../../services/authentication.service";
+import { authenticate, setToken } from "../../services/authentication.service";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
@@ -23,21 +23,21 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (userName === "" && password === "") {
-      return;
-    } else {
-      axios
-        .post(serverUri + "/api-token-auth/", {
-          username: userName,
-          password: password,
-        })
-        .then((response) => {
-          console.log(response);
-          setToken(response?.data?.token);
-          history("/landing-screen");
-        })
-        .catch((err) => console.log(err));
+    if (authenticate()) {
+      history("/landing-screen");
     }
+
+    axios
+      .post(serverUri + "/api-token-auth/", {
+        username: userName,
+        password: password,
+      })
+      .then((response) => {
+        console.log(response);
+        setToken(response?.data?.token);
+        return history("/landing-screen");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
