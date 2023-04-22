@@ -52,7 +52,7 @@ const Landing = () => {
             </div>
             <div class="as-a-natural-language-processi-wrapper">
               <div class="as-a-natural">
-                {data?.personal_statement}
+                {data?.personal_statement.description??""}
               </div>
             </div>
           </div>

@@ -21,7 +21,7 @@ export const apiResponseReducer = createSlice({
       state.response.personal_information = action.payload;
     },
     updatePersonalStatement: (state, action) => {
-      state.response.personal_statement = action.payload;
+      state.response.personal_statement.description = action.payload;
     },
     updateProjectsExperience: (state, action) => {
       state.response.project_experience = action.payload;
