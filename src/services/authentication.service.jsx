@@ -1,8 +1,8 @@
-import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 export const setToken = (token) => {
   try {
-    localStorage.setItem("Authorization", `Token ${token}`);
+    localStorage.setItem("Authorization", token);
   } catch (e) {
     console.log("Local Store error", e);
   }
@@ -13,5 +13,16 @@ export const clearToken = () => {
 };
 
 export const authenticate = () => {
-  return true;
-}
+  const token = localStorage.getItem("Authorization");
+  if (!token || token === "") {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+export const axiosWithAuth = axios.create({
+  headers: {
+    Authorization: `Token ${localStorage.getItem("Authorization")}`,
+  },
+});
