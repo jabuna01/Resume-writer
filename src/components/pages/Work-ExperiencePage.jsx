@@ -55,11 +55,16 @@ export default function WorkExperiencePage() {
                     <Form.Control
                       type="text"
                       placeholder="Enter Job title"
+                      name="job_title"
                     />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label>Start Year</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Start Year" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Start Year"
+                      name="start_date"
+                    />
                   </Form.Group>
                 </Col>
                 <Col md={6}>
@@ -71,11 +76,16 @@ export default function WorkExperiencePage() {
                     <Form.Control
                       type="text"
                       placeholder="Enter your Company Name"
+                      name="company"
                     />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label>End Year</Form.Label>
-                    <Form.Control type="email" placeholder="Enter End Year" />
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter End Year"
+                      name="end_date"
+                    />
                   </Form.Group>
                 </Col>
               </Row>
@@ -89,6 +99,7 @@ export default function WorkExperiencePage() {
                     <Form.Control
                       as="textarea"
                       placeholder="Enter your Job Description"
+                      name="descriptions"
                     />
                   </Form.Group>
                 </Col>
