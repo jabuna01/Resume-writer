@@ -54,14 +54,29 @@ export default function CertificationPage() {
                     <Form.Label>Certificate Title</Form.Label>
                     <Form.Control
                       type="text"
+                      name = "certification_name"
                       placeholder="Enter Certificate Title"
                     />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label>Certificate Course Link</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Certification link" />
+                    <Form.Control type="text" name = "certification_link" placeholder="Enter Certificate link" />
                   </Form.Group>
                 </Col>
+                <Col md={12}>
+                  <Form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <Form.Label>Certification Description</Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      name = "certification_description"
+                      placeholder="Enter your Certificate Description"
+                    />
+                  </Form.Group>
+                </Col>
+                
               </Row>
               <div className="tab-title-block">
                 <div></div>
