@@ -21,8 +21,8 @@ export default function ProjecstExperiencePage() {
         <div className="main-content">
           <div className="tab-title-block">
             <div>
-              <h3>Educations</h3>
-              <p className="sub-text">Update your educational details.</p>
+              <h3>Project Experience</h3>
+              <p className="sub-text">Update your Project Experience details.</p>
             </div>
             <Button variant="secondary" disabled>
               {" "}
