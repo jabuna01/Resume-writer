@@ -88,7 +88,7 @@ export default function WorkExperiencePage() {
                     <Form.Label>Description</Form.Label>
                     <Form.Control
                       as="textarea"
-                      placeholder="Enter your Course Description"
+                      placeholder="Enter your Job Description"
                     />
                   </Form.Group>
                 </Col>
