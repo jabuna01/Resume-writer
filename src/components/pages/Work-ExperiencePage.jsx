@@ -7,22 +7,34 @@ import {
   ButtonGroup,
   ButtonToolbar,
 } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { useState } from "react";
-
+import WorkExperienceList from "./workExperienceList";
 export default function WorkExperiencePage() {
-  const [form, addForm] = useState([]);
-  const [workexperience, setWorkexperience] = useState([]);
+  // const [form, addForm] = useState([]);
+  const [work_experience, setWorkexperience] = useState([]);
+  const form = useSelector(
+    (state) => state.apiResponse.response.work_experience
+  );
 
-  const handleAddWorkexperience = (e) => {
-    const element = form.length + 1;
-    addForm([...form, element]);
-  };
+  // const handleAddWorkexperience = (e) => {
+  //   const element = form.length + 1;
+  //   addForm([...form, element]);
+  // };
 
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(work_experience,"hello");
   };
 
-  const handleSetWorkexperience = (e) => {};
+  // const handleSetWorkexperience = (e) => {};
+  // const displayData = (data) => {
+  //   let work = [];
+  //   for (let obj of data) {
+  //     work.push(<WorkExperienceList obj={obj} />);
+  //   }
+  //   return work;
+  // };
 
   return (
     <>
@@ -35,16 +47,17 @@ export default function WorkExperiencePage() {
               <h3>Work Experiences</h3>
               <p className="sub-text">Update your Work Experience Details</p>
             </div>
-            <Button variant="secondary" disabled>
+            <Button variant="secondary" onClick={handleSubmit}>
               {" "}
               Save and Continue
             </Button>
           </div>
-          <Button variant="info" onClick={handleAddWorkexperience}>
-            + Add Experience
-          </Button>
-          {form.map((index) => (
-            <Form className="form-wrapper" key={index}>
+
+          {form.map((obj) => (
+            <Form
+              className="form-wrapper"
+              //  key={index}
+            >
               <Row>
                 <Col md={6}>
                   <Form.Group
@@ -56,6 +69,7 @@ export default function WorkExperiencePage() {
                       type="text"
                       placeholder="Enter Job title"
                       name="job_title"
+                      value={obj.job_title}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3">
@@ -64,6 +78,7 @@ export default function WorkExperiencePage() {
                       type="text"
                       placeholder="Enter Start Year"
                       name="start_date"
+                      value={obj.start_date}
                     />
                   </Form.Group>
                 </Col>
@@ -77,6 +92,7 @@ export default function WorkExperiencePage() {
                       type="text"
                       placeholder="Enter your Company Name"
                       name="company"
+                      value={obj.company}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3">
@@ -85,6 +101,7 @@ export default function WorkExperiencePage() {
                       type="email"
                       placeholder="Enter End Year"
                       name="end_date"
+                      value={obj.end_date}
                     />
                   </Form.Group>
                 </Col>
@@ -100,11 +117,12 @@ export default function WorkExperiencePage() {
                       as="textarea"
                       placeholder="Enter your Job Description"
                       name="descriptions"
+                      value={obj.descriptions}
                     />
                   </Form.Group>
                 </Col>
               </Row>
-              <div className="tab-title-block">
+              {/* <div className="tab-title-block">
                 <div></div>
                 <ButtonToolbar>
                   <ButtonGroup className="m-2">
@@ -114,7 +132,7 @@ export default function WorkExperiencePage() {
                     <Button variant="secondary"> Remove</Button>
                   </ButtonGroup>
                 </ButtonToolbar>
-              </div>
+              </div> */}
             </Form>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import SideNav from "../reusables/SideNav";
 import { Button, DropdownButton, Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import Landing from "../../scenes/resumeTemplate";
 
 export default function HomePage() {
   // const data = useSelector((state) => state.apiResponse.response);
@@ -39,7 +40,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="resume-block">
-            <div className="text-center">Ai Generated pdf doc comes here</div>
+            <Landing />
           </div>
         </div>
       </div>

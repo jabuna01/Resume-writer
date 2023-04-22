@@ -107,3 +107,24 @@
     }
   }
 }
+
+/* List with bullets */
+.list-bullets {
+  list-style: none;
+}
+
+.list-bullets li {
+  display: flex;
+  align-items: center;
+}
+
+.list-bullets li::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $secondary;
+  border: 2px solid $secondary-light2;
+  display: block;
+  margin-right: 1rem;
+}

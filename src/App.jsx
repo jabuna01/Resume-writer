@@ -12,10 +12,9 @@ import ProjecstExperiencePage from "./components/pages/Projects-ExperiencePage";
 import EducationPage from "./components/pages/EducationPage";
 import CertificationPage from "./components/pages/Certifications";
 import TrainingPage from "./components/pages/TrainingsPage";
-
-import WorkExperiencePage from "./components/pages/Work-ExperiencePage";
 import SkillsPage from "./components/pages/SkillsPage";
-import Landing from "./scenes/landing";
+import WorkExperiencePage from "./components/pages/Work-ExperiencePage";
+import PersonalStatementPage from "./components/pages/Personal-StatementPage";
 function App() {
   return (
     <>
@@ -23,14 +22,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LoginPage />}></Route>
-            <Route path="/cv" element={<Landing />}></Route>
-            <Route
-              exact
-              path="/landing-screen"
-              element={
-                authenticate() ? <LandingPage /> : <Navigate replace to={"/"} />
-              }
-            ></Route>
             <Route
               path="/home-screen"
               element={
@@ -88,6 +79,26 @@ function App() {
               element={
                 authenticate() ? (
                   <TrainingPage />
+                ) : (
+                  <Navigate replace to={"/"} />
+                )
+              }
+            ></Route>
+            <Route
+              path="/personal-statment-screen"
+              element={
+                authenticate() ? (
+                  <PersonalStatementPage />
+                ) : (
+                  <Navigate replace to={"/"} />
+                )
+              }
+            ></Route>
+            <Route
+              path="/work-experience-screen"
+              element={
+                authenticate() ? (
+                  <WorkExperiencePage />
                 ) : (
                   <Navigate replace to={"/"} />
                 )
