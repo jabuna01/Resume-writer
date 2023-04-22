@@ -44,7 +44,7 @@ export default function TrainingPage() {
             + Add Trainings
           </Button>
           {form.map((index) => (
-            <Form className="form-wrapper" key={index}>
+            <Form className="form-wrapper border-block" key={index}>
               <Row>
                 <Col md={12}>
                   <Form.Group

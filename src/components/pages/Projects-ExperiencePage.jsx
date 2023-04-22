@@ -39,7 +39,7 @@ export default function ProjecstExperiencePage() {
             + Add Projects
           </Button>
           {form.map((index) => (
-            <Form className="form-wrapper" key={index}>
+            <Form className="form-wrapper border-block" key={index}>
               <Row>
                 <Col md={6}>
                   <Form.Group
