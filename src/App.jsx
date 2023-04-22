@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import PersonalInformationPage from "./components/pages/Personal-InformationPage";
 import ProjecstExperiencePage from "./components/pages/Projects-ExperiencePage";
 import EducationPage from "./components/pages/EducationPage";
+import CertificationPage from "./components/pages/Certifications";
+import TrainingPage from "./components/pages/TrainingsPage";
 
 function App() {
   return (
@@ -56,6 +58,26 @@ function App() {
               element={
                 authenticate() ? (
                   <EducationPage />
+                ) : (
+                  <Navigate replace to={"/"} />
+                )
+              }
+            ></Route>
+            <Route
+              path="/certifications-screen"
+              element={
+                authenticate() ? (
+                  <CertificationPage />
+                ) : (
+                  <Navigate replace to={"/"} />
+                )
+              }
+            ></Route>
+            <Route
+              path="/trainings-screen"
+              element={
+                authenticate() ? (
+                  <TrainingPage />
                 ) : (
                   <Navigate replace to={"/"} />
                 )
