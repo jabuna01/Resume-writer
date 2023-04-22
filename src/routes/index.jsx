@@ -5,6 +5,7 @@ import Landing from "../scenes/landing";
 import Loading from "../scenes/loading";
 import Edit from "../scenes/edit-page";
 import HomePage from "../components/pages/HomePage";
+import Recommendation from "../scenes/ai_recommendation";
 
 export const router = [
   {
@@ -42,6 +43,11 @@ export const router = [
   {
     path: "/Design/edit",
     element: <Edit />,
+    public: true,
+  },
+  {
+    path: "/Design/ai",
+    element: <Recommendation />,
     public: true,
   },
 ];
