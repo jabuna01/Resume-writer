@@ -13,6 +13,8 @@ import EducationPage from "./components/pages/EducationPage";
 import CertificationPage from "./components/pages/Certifications";
 import TrainingPage from "./components/pages/TrainingsPage";
 
+import WorkExperiencePage from "./components/pages/Work-ExperiencePage";
+import SkillsPage from "./components/pages/SkillsPage";
 function App() {
   return (
     <>
@@ -48,6 +50,16 @@ function App() {
               element={
                 authenticate() ? (
                   <ProjecstExperiencePage />
+                ) : (
+                  <Navigate replace to={"/"} />
+                )
+              }
+            ></Route>
+            <Route
+              path="/skills-screen"
+              element={
+                authenticate() ? (
+                  <SkillsPage />
                 ) : (
                   <Navigate replace to={"/"} />
                 )
