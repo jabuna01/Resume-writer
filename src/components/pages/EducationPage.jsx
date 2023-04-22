@@ -8,10 +8,14 @@ import {
   ButtonToolbar,
 } from "react-bootstrap";
 import { useState } from "react";
+import { updateEducation } from "../reducers/apiResponseReducer";
+import { useDispatch, useSelector } from "react-redux";
+import EducationList from "./educationlist";
 
 export default function EducationPage() {
   const [form, addForm] = useState([]);
   const [education, setEducation] = useState([]);
+  const data = useSelector((state) => state.apiResponse.response.education);
 
   const handleAddEducation = (e) => {
     const element = form.length + 1;
@@ -20,9 +24,34 @@ export default function EducationPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(education);
   };
 
-  const handleSetEducation = (e) => {};
+  const handleAdd = (e, index) => {
+    //   let tm = tempData;
+    //   e.preventDefault();
+    //   const newEducation = {
+    //     degree: e.target.degree.value,
+    //     university_name: e.target.university_name.value,
+    //     start_date: e.target.start_date.value,
+    //     end_date: e.target.end_date.value,
+    //     description: e.target.description.value,
+    //   };
+    //  dispatch(updateEducation(newEducation))
+  };
+
+  const handleRemove = (index) => {
+    // setEducation(education.filter((edu, i) => i !== index));
+    // addForm(form.filter((f, i) => i !== index));
+  };
+
+  const displayData = (data) => {
+    let edu = [];
+    for (let obj of data) {
+      edu.push(<EducationList obj={obj} />);
+    }
+    return edu;
+  };
 
   return (
     <>
@@ -35,7 +64,7 @@ export default function EducationPage() {
               <h3>Educations</h3>
               <p className="sub-text">Update your educational details.</p>
             </div>
-            <Button variant="secondary" disabled>
+            <Button variant="secondary" onClick={handleSubmit}>
               {" "}
               Save and Continue
             </Button>
@@ -43,69 +72,8 @@ export default function EducationPage() {
           <Button variant="info" onClick={handleAddEducation}>
             + Add Educations
           </Button>
-          {form.map((index) => (
-            <Form className="form-wrapper" key={index}>
-              <Row>
-                <Col md={6}>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Label>College or University Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter College or university"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Start Year</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Start Year" />
-                  </Form.Group>
-                </Col>
-                <Col md={6}>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Label>Course Title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter your Course Title"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3">
-                    <Form.Label>End Year</Form.Label>
-                    <Form.Control type="email" placeholder="Enter End Year" />
-                  </Form.Group>
-                </Col>
-              </Row>
-              <Row>
-                <Col md={12}>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Enter your Course Description"
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-              <div className="tab-title-block">
-                <div></div>
-                <ButtonToolbar>
-                  <ButtonGroup className="m-2">
-                    <Button variant="secondary"> Add</Button>
-                  </ButtonGroup>
-                  <ButtonGroup className="m-2">
-                    <Button variant="secondary"> Remove</Button>
-                  </ButtonGroup>
-                </ButtonToolbar>
-              </div>
-            </Form>
-          ))}
+
+          {displayData(data)}
         </div>
       </div>
     </>

@@ -16,6 +16,94 @@
     color: $neutral-dark1;
   }
 }
-.form-wrapper {
-  padding: 0 40px;
+
+.ai-bot {
+  width: fit-content;
+  padding: 8px 12px;
+  background-color: $secondary-light2;
+  border-radius: 8px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  &[aria-describedby="resume-ai"] {
+    background-color: $secondary;
+    svg {
+      path {
+        fill: $background;
+      }
+    }
+  }
+}
+#style-3::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.144);
+  background-color: $secondary-light2;
+  opacity: 0.5;
+}
+
+#style-3::-webkit-scrollbar {
+  width: 6px;
+  background-color: $secondary-light2;
+  opacity: 0.5;
+}
+
+#style-3::-webkit-scrollbar-thumb {
+  background-color: $secondary-dark;
+  border-radius: 3px;
+}
+.popover {
+  border: 1px solid $secondary-dark;
+  width: calc(100vw - 350px);
+  max-width: unset;
+  .popover-arrow {
+    display: none;
+  }
+  .popover-header {
+    background-color: $secondary-light2;
+    color: $secondary-dark;
+    padding: 16px 24px;
+    border-bottom: none;
+  }
+  .popover-body {
+    padding: 8px 24px 24px 24px;
+    .label-title {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 14px;
+      color: $neutral-dark1;
+      margin-bottom: 16px;
+    }
+    .recomendation {
+      list-style-type: none;
+      padding-left: 0;
+      max-height: 300px;
+      overflow-x: auto;
+      margin-bottom: 0;
+      &-item {
+        background-color: $secondary-light2;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        .btn.btn-outline-secondary {
+          min-width: 38px !important;
+          height: 38px !important;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          border-color: $secondary-dark;
+          font-weight: 600;
+          border-radius: 20px;
+          &:hover {
+            background-color: $secondary-dark;
+            color: $background;
+          }
+        }
+      }
+    }
+  }
 }
