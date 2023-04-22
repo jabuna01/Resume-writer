@@ -11,7 +11,7 @@ import PersonalInformationPage from "./components/pages/Personal-InformationPage
 import ProjecstExperiencePage from "./components/pages/Projects-ExperiencePage";
 import EducationPage from "./components/pages/EducationPage";
 import WorkExperiencePage from "./components/pages/Work-ExperiencePage";
-
+import SkillsPage from "./components/pages/SkillsPage";
 function App() {
   return (
     <>
@@ -47,6 +47,16 @@ function App() {
               element={
                 authenticate() ? (
                   <ProjecstExperiencePage />
+                ) : (
+                  <Navigate replace to={"/"} />
+                )
+              }
+            ></Route>
+            <Route
+              path="/skills-screen"
+              element={
+                authenticate() ? (
+                  <SkillsPage />
                 ) : (
                   <Navigate replace to={"/"} />
                 )
