@@ -9,7 +9,6 @@ import {
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import WorkExperienceList from "./workExperienceList";
 export default function WorkExperiencePage() {
   // const [form, addForm] = useState([]);
   const [work_experience, setWorkexperience] = useState([]);
@@ -39,7 +38,7 @@ export default function WorkExperiencePage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={4}/>
 
         <div className="main-content">
           <div className="tab-title-block">

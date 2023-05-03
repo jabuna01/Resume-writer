@@ -17,7 +17,6 @@ export default function TrainingPage() {
   const [training, setTraining] = useState([]);
   const data = useSelector((state) => state.apiResponse.response.trainings);
 
-
   const handleAddTraining = (e) => {
     const element = form.length + 1;
     addForm([...form, element]);
@@ -29,7 +28,6 @@ export default function TrainingPage() {
 
   const handleSetTraining = (e) => {};
 
-
   const displayData = (data) => {
     let train = [];
     for (let obj of data) {
@@ -38,11 +36,10 @@ export default function TrainingPage() {
     return train;
   };
 
-
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={6}/>
 
         <div className="main-content">
           <div className="tab-title-block">

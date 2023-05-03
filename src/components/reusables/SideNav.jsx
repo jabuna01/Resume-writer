@@ -3,11 +3,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function SideNav(props) {
-  const [activeNav, setActiveNav] = useState();
+  const [activeNav, setActiveNav] = useState(props?.activeNav);
   const history = useNavigate();
 
   const handleTabClick = (index) => {
-    setActiveNav(index);
     switch (index) {
       case 0:
         history("/personal-information-screen");

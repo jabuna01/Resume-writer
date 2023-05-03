@@ -29,7 +29,7 @@ export default function CertificationPage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={3}/>
 
         <div className="main-content">
           <div className="tab-title-block">

@@ -1,4 +1,5 @@
 import { Button, DropdownButton, Dropdown } from "react-bootstrap";
+// import Landing from "../../scenes/resumeTemplate";
 import Landing from "../../scenes/resumeTemplate";
 import SideNav from "../reusables/SideNav";
 import ReactDOMServer from "react-dom/server";
@@ -13,6 +14,7 @@ export default function HomePage() {
     html2pdf(document.getElementById("resume"), {
       margin: 0,
       filename: "resume.pdf",
+      pagebreak: { mode: [] },
       jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     });
   };

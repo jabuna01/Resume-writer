@@ -26,7 +26,7 @@ export default function SkillsPage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={5}/>
         <div className="main-content">
           <div className="tab-title-block">
             <div>

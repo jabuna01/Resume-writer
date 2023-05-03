@@ -146,11 +146,19 @@
   .title-parent {
     align-self: stretch;
     border-bottom: 1px solid var(--neutral-background-1);
-    padding: var(--padding-13xl) 0 var(--padding-5xl);
+    padding: 32px 24px;
     gap: var(--gap-mini);
     z-index: 1;
     font-size: var(--font-size-xs);
     color: var(--neutral-text-1);
+    .resume-table{
+      width: 100%;
+      td{
+        padding: 4px 6px;
+        border: 1px solid $neutral-light2;
+        vertical-align: baseline;
+      }
+    }
   }
   .title {
     position: relative;
@@ -216,6 +224,20 @@
     justify-content: flex-start;
     font-size: var(--font-inherit);
     color: var(--neutral-text-2);
+    width: 100%;
+    .skills {
+      width: 100%;
+      list-style-type: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      gap: 1px 1px;
+      &-item{
+        padding: 4px 2px;
+        background-color: $neutral-light3;
+        text-align: left;
+      }
+    }
   }
   .title-parent1,
   .title-parent2 {
