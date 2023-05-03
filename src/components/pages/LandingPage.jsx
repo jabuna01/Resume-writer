@@ -83,7 +83,7 @@ export default function LandingPage() {
                     <Form.Control
                       as="textarea"
                       rows={3}
-                      placeholder="Write your Job Discription"
+                      placeholder="Write your Job Description"
                       onChange={handleJobDescriptionChange}
                     />
                   </Form.Group>

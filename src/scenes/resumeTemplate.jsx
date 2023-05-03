@@ -5,43 +5,43 @@ const Landing = () => {
   const data = useSelector((state) => state?.apiResponse?.response);
   return (
     <>
-      <div className="resume-block">
-        <div class="resume-template">
+      <div classNameName="resume-block" id="resume">
+        <div className="resume-template">
           {/* Personal Information */}
-          <div class="frame-parent">
-            <div class="frame-group">
-              <div class="aashish-shakaya-parent">
-                <b class="aashish-shakaya">
+          <div className="frame-parent">
+            <div className="frame-group">
+              <div className="aashish-shakaya-parent">
+                <b className="aashish-shakaya">
                   {data?.personal_information?.name}
                 </b>
-                <div class="nlp-engineer">
+                <div className="nlp-engineer">
                   {data?.personal_information?.role}
                 </div>
               </div>
-              <div class="emailfusemachinescom-parent">
-                <div class="emailfusemachinescom">
+              <div className="emailfusemachinescom-parent">
+                <div className="emailfusemachinescom">
                   <a
-                    class="emailfusemachinescom"
+                    className="emailfusemachinescom"
                     href={`mailto:${data?.personal_information?.email}`}
                     target="_blank"
                   >
                     {data?.personal_information?.email}
                   </a>
                 </div>
-                <div class="div">|</div>
-                <div class="emailfusemachinescom">
+                <div className="div">|</div>
+                <div className="emailfusemachinescom">
                   <a
-                    class="emailfusemachinescom"
+                    className="emailfusemachinescom"
                     href={`https://${data?.personal_information?.linkedin}`}
                     target="_blank"
                   >
                     LinkedIn
                   </a>
                 </div>
-                <div class="div">|</div>
-                <div class="emailfusemachinescom">
+                <div className="div">|</div>
+                <div className="emailfusemachinescom">
                   <a
-                    class="emailfusemachinescom"
+                    className="emailfusemachinescom"
                     href={`https://${data?.personal_information?.github}`}
                     target="_blank"
                   >
@@ -50,8 +50,8 @@ const Landing = () => {
                 </div>
               </div>
             </div>
-            <div class="as-a-natural-language-processi-wrapper">
-              <div class="as-a-natural">
+            <div className="as-a-natural-language-processi-wrapper">
+              <div className="as-a-natural">
                 {data?.personal_statement.description??""}
               </div>
             </div>
@@ -59,24 +59,24 @@ const Landing = () => {
 
           {/* Project experience */}
           {data?.project_experience?.length > 0 && (
-            <div class="title-parent">
-              <b class="title">Project Experience</b>
+            <div className="title-parent">
+              <b className="title">Project Experience</b>
               {data?.project_experience?.map((project) => (
-                <div class="subtitle-parent">
-                  <b class="aashish-shakaya">{project.project_name}</b>
-                  <div class="developed-natural-language-container">
-                    <ul class="developed-natural-language-pro">
+                <div className="subtitle-parent">
+                  <b className="aashish-shakaya">{project.project_name}</b>
+                  <div className="developed-natural-language-container">
+                    <ul className="developed-natural-language-pro">
                       {project.project_description?.map((description) => (
-                        <li class="developed-natural-language">
+                        <li className="developed-natural-language">
                           {description}
                         </li>
                       ))}
 
-                      <li class="developed-natural-language">
+                      <li className="developed-natural-language">
                         <u>Technologies Used:</u>
                         <ul>
                           {project["tools/technologies"]?.map((tool) => (
-                            <li class="developed-natural-language">{tool}</li>
+                            <li className="developed-natural-language">{tool}</li>
                           ))}
                         </ul>
                       </li>
@@ -89,15 +89,15 @@ const Landing = () => {
 
           {/* Certifications */}
           {data?.certifications?.length > 0 && (
-            <div class="title-group">
-              <b class="title">Certifications</b>
-              <div class="link1-link-2-wrapper">
-                <div class="link1-link-2-container">
-                  <ul class="developed-natural-language-pro">
+            <div className="title-group">
+              <b className="title">Certifications</b>
+              <div className="link1-link-2-wrapper">
+                <div className="link1-link-2-container">
+                  <ul className="developed-natural-language-pro">
                     {data?.certifications?.map((certificate) => (
                       <li>
                         <a
-                          className="certificate-link"
+                          classNameName="certificate-link"
                           href={certificate.certification_link}
                           target="_blank"
                         >
@@ -113,21 +113,21 @@ const Landing = () => {
 
           {/* Work experience */}
           {data?.work_experience?.length > 0 && (
-            <div class="title-container">
-              <b class="title">Work experience</b>
+            <div className="title-container">
+              <b className="title">Work experience</b>
 
               {data?.work_experience?.map((experience) => (
-                <div class="subtitle-parent">
-                  <b class="subtitle2">
+                <div className="subtitle-parent">
+                  <b className="subtitle2">
                     {experience.job_title}, {experience.company}
                   </b>
-                  <div class="aashish-shakaya">
+                  <div className="aashish-shakaya">
                     {experience.start_date} - {experience.end_date}
                   </div>
-                  <div class="optimized-and-fine-tuned-container1">
-                    <ul class="developed-natural-language-pro">
+                  <div className="optimized-and-fine-tuned-container1">
+                    <ul className="developed-natural-language-pro">
                       {experience.descriptions?.map((description) => (
-                        <li class="developed-natural-language">
+                        <li className="developed-natural-language">
                           {description}
                         </li>
                       ))}
@@ -140,14 +140,14 @@ const Landing = () => {
 
           {/* Skills */}
           {data?.skills?.length > 0 && (
-            <div class="title-parent1">
-              <b class="title">Skills</b>
-              <div class="skill-lists">
-                <div class="natural-language-processing-container">
-                  <ul class="developed-natural-language-pro">
+            <div className="title-parent1">
+              <b className="title">Skills</b>
+              <div className="skill-lists">
+                <div className="natural-language-processing-container">
+                  <ul className="developed-natural-language-pro">
                     {data?.skills?.map((skill) => (
-                      <li class="developed-natural-language">
-                        <b class="natural-language-processing">{skill}</b>
+                      <li className="developed-natural-language">
+                        <b className="natural-language-processing">{skill}</b>
                       </li>
                     ))}
                   </ul>
@@ -158,13 +158,13 @@ const Landing = () => {
 
           {/* Trannings */}
           {data?.trainings.length > 0 && (
-            <div class="title-parent2">
-              <b class="title">Trannings</b>
-              <div class="link1-link-2-wrapper">
-                <div class="link1-link-2-container">
-                  <ul class="developed-natural-language-pro">
+            <div className="title-parent2">
+              <b className="title">Trannings</b>
+              <div className="link1-link-2-wrapper">
+                <div className="link1-link-2-container">
+                  <ul className="developed-natural-language-pro">
                     {data?.trainings?.map((training) => (
-                      <li class="developed-natural-language">
+                      <li className="developed-natural-language">
                         {training.title}
                       </li>
                     ))}
@@ -176,23 +176,23 @@ const Landing = () => {
 
           {/* Education */}
           {data?.education?.length > 0 && (
-            <div class="title-parent3">
-              <b class="title">Education</b>
+            <div className="title-parent3">
+              <b className="title">Education</b>
               {data?.education?.map((education) => (
-                <div class="subtitle-parent1">
-                  <b class="subtitle2">{education.degree}</b>
-                  <div class="aashish-shakaya">{education.university_name}</div>
-                  <div class="aashish-shakaya">
+                <div className="subtitle-parent1">
+                  <b className="subtitle2">{education.degree}</b>
+                  <div className="aashish-shakaya">{education.university_name}</div>
+                  <div className="aashish-shakaya">
                     {education.start_date} - {education.end_date}
                   </div>
                 </div>
               ))}
             </div>
           )}
-          <div class="logo-rev-1-parent">
-            <img class="logo-rev-1-icon" alt="" src="/fusemachine-logo.svg" />
+          <div className="logo-rev-1-parent">
+            <img className="logo-rev-1-icon" alt="" src="/fusemachine-logo.svg" />
 
-            <div class="wwwfusemachinescom">www.fusemachines.com</div>
+            <div className="wwwfusemachinescom">www.fusemachines.com</div>
           </div>
         </div>
       </div>
