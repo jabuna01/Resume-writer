@@ -107,9 +107,23 @@
   }
 }
 
-.form-wrapper.border-block {
-  border: 1px dashed $secondary-dark;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+/* List with bullets */
+.list-bullets {
+  list-style: none;
+}
+
+.list-bullets li {
+  display: flex;
+  align-items: center;
+}
+
+.list-bullets li::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $secondary;
+  border: 2px solid $secondary-light2;
+  display: block;
+  margin-right: 1rem;
 }

@@ -49,7 +49,7 @@ export default function SideNav(props) {
 
   return (
     <div className="sider">
-      <div className="sider-top">
+      <div className="sider-top cursor-pointer" onClick={() => handleTabClick()}>
         <img src="/logo small.svg" alt="brand" />
       </div>
       <div className="line" />
@@ -151,7 +151,7 @@ export default function SideNav(props) {
                 <img src="/user.svg" alt="user-icon" />
               </div>
             </div>
-            <div className="label">Trannings</div>
+            <div className="label">Trainings</div>
           </li>
           <li
             className={`tabs-item ${activeNav === 7 ? "active" : ""}`}

@@ -8,10 +8,14 @@ import {
   ButtonToolbar,
 } from "react-bootstrap";
 import { useState } from "react";
+import { updateTrainings } from "../reducers/apiResponseReducer";
+import { useDispatch, useSelector } from "react-redux";
+import TrainingList from "./traininglist";
 
 export default function TrainingPage() {
   const [form, addForm] = useState([]);
   const [training, setTraining] = useState([]);
+  const data = useSelector((state) => state.apiResponse.response.trainings);
 
   const handleAddTraining = (e) => {
     const element = form.length + 1;
@@ -24,6 +28,14 @@ export default function TrainingPage() {
 
   const handleSetTraining = (e) => {};
 
+  const displayData = (data) => {
+    let train = [];
+    for (let obj of data) {
+      train.push(<TrainingList obj={obj} />);
+    }
+    return train;
+  };
+
   return (
     <>
       <div className="content-wrapper content">
@@ -35,44 +47,15 @@ export default function TrainingPage() {
               <h3>Trainings</h3>
               <p className="sub-text">Update your training details.</p>
             </div>
-            <Button variant="secondary" disabled>
+            <Button variant="secondary" onClick={handleSubmit}>
               {" "}
               Save and Continue
             </Button>
           </div>
-          <Button variant="info" className="mb-3" onClick={handleAddTraining}>
+          {/* <Button variant="info" onClick={handleAddTraining}>
             + Add Trainings
-          </Button>
-          {form.map((index) => (
-            <Form className="form-wrapper border-block" key={index}>
-              <Row>
-                <Col md={12}>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlInput1"
-                  >
-                    <Form.Label>Training Title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="title"
-                      placeholder="Enter Training Title"
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-              <div className="tab-title-block">
-                <div></div>
-                <ButtonToolbar>
-                  <ButtonGroup className="m-2">
-                    <Button variant="secondary"> Add</Button>
-                  </ButtonGroup>
-                  <ButtonGroup className="m-2">
-                    <Button variant="secondary"> Remove</Button>
-                  </ButtonGroup>
-                </ButtonToolbar>
-              </div>
-            </Form>
-          ))}
+          </Button> */}
+          {displayData(data)}
         </div>
       </div>
     </>
