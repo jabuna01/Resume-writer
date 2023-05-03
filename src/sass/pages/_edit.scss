@@ -1,5 +1,4 @@
 .tab-title-block {
-  margin-bottom: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,4 +105,11 @@
       }
     }
   }
+}
+
+.form-wrapper.border-block {
+  border: 1px dashed $secondary-dark;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }

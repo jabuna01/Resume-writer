@@ -68,6 +68,11 @@
     label {
       color: $background;
     }
+    textarea {
+      resize: none;
+      height: calc(100vh - 600px);
+      min-height: 90px;
+    }
   }
   .uploader {
     height: 100%;

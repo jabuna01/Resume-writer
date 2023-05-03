@@ -21,19 +21,25 @@ export default function ProjecstExperiencePage() {
         <div className="main-content">
           <div className="tab-title-block">
             <div>
-              <h3>Educations</h3>
-              <p className="sub-text">Update your educational details.</p>
+              <h3>Project Experience</h3>
+              <p className="sub-text">
+                Update your Project Experience details.
+              </p>
             </div>
             <Button variant="secondary" disabled>
               {" "}
               Save and Continue
             </Button>
           </div>
-          <Button variant="info" onClick={handleAddProjectExperience}>
+          <Button
+            variant="info"
+            className="mb-3"
+            onClick={handleAddProjectExperience}
+          >
             + Add Projects
           </Button>
           {form.map((index) => (
-            <Form className="form-wrapper" key={index}>
+            <Form className="form-wrapper border-block" key={index}>
               <Row>
                 <Col md={6}>
                   <Form.Group
