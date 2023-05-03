@@ -24,32 +24,12 @@
       width: 75%;
       margin: 0 auto;
     }
-    .animation {
-      width: 100%;
-      height: 100vh;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      .loading-ani {
-        height: 58vh;
-        margin-bottom: 32px;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      button {
-        width: fit-content;
-      }
-    }
   }
 }
 .upload {
   background-color: $primary;
   padding-bottom: 86px;
-  height: 100vh;
+  // height: 100vh;
   .container {
     height: 100%;
   }
@@ -59,8 +39,6 @@
   padding: 40px;
   border-radius: 16px;
   position: relative;
-  height: calc(100% - 300px);
-  margin-bottom: 86px;
   min-height: 309px;
   .jd {
     width: 46%;
@@ -68,6 +46,13 @@
     p,
     label {
       color: $background;
+    }
+    textarea {
+      // resize: none;
+      // height: calc(100vh - 600px);
+      min-height: 90px;
+      max-height: 600px;
+      font-size: 12px;
     }
   }
   .uploader {
@@ -87,6 +72,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      .successimage {
+        height: 20vh;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
       img {
         margin-bottom: 14px;
       }
@@ -96,7 +89,27 @@
 .proceed {
   padding: 24px 0;
   background-color: $primary-light2;
-  position: absolute;
+  // position: absolute;
   width: 100%;
   bottom: 0;
+}
+
+.animation {
+  .loading-ani {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: scale-down;
+    }
+  }
+  button {
+    width: fit-content;
+  }
 }

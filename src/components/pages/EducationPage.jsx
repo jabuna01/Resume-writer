@@ -56,7 +56,7 @@ export default function EducationPage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={7}/>
 
         <div className="main-content">
           <div className="tab-title-block">
@@ -69,7 +69,7 @@ export default function EducationPage() {
               Save and Continue
             </Button>
           </div>
-          <Button variant="info" onClick={handleAddEducation}>
+          <Button variant="info" className="mb-3" onClick={handleAddEducation}>
             + Add Educations
           </Button>
 

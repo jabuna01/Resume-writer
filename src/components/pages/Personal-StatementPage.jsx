@@ -38,7 +38,7 @@ export default function PersonalStatementPage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={1}/>
 
         <div className="main-content">
           <div className="tab-title-block">

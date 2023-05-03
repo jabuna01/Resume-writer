@@ -1,5 +1,5 @@
 import { Button, DropdownButton, Dropdown } from "react-bootstrap";
-import Landing from "../../scenes/resumeTemplate";
+import Landing from "./ResumeTemplate";
 import SideNav from "../reusables/SideNav";
 import ReactDOMServer from "react-dom/server";
 import html2pdf from "html2pdf.js";
