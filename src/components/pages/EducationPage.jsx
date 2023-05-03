@@ -56,7 +56,7 @@ export default function EducationPage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={7}/>
 
         <div className="main-content">
           <div className="tab-title-block">

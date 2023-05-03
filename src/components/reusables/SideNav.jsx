@@ -3,11 +3,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function SideNav(props) {
-  const [activeNav, setActiveNav] = useState();
+  const [activeNav, setActiveNav] = useState(props?.activeNav);
   const history = useNavigate();
 
   const handleTabClick = (index) => {
-    setActiveNav(index);
     switch (index) {
       case 0:
         history("/personal-information-screen");
@@ -49,7 +48,7 @@ export default function SideNav(props) {
 
   return (
     <div className="sider">
-      <div className="sider-top">
+      <div className="sider-top cursor-pointer" onClick={() => handleTabClick()}>
         <img src="/logo small.svg" alt="brand" />
       </div>
       <div className="line" />
@@ -151,7 +150,7 @@ export default function SideNav(props) {
                 <img src="/user.svg" alt="user-icon" />
               </div>
             </div>
-            <div className="label">Trannings</div>
+            <div className="label">Trainings</div>
           </li>
           <li
             className={`tabs-item ${activeNav === 7 ? "active" : ""}`}

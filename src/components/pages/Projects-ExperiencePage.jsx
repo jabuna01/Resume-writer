@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import SideNav from "../reusables/SideNav";
+import { useSelector } from "react-redux";
 
 export default function ProjecstExperiencePage() {
-  const [form, addForm] = useState([]);
+  // const [form, addForm] = useState([]);
+
+  const form = useSelector(
+    (state) => state.apiResponse.response.project_experience
+  );
 
   const handleAddProjectExperience = (e) => {
     const element = form.length + 1;
@@ -17,7 +22,7 @@ export default function ProjecstExperiencePage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={2}/>
         <div className="main-content">
           <div className="tab-title-block">
             <div>
@@ -31,15 +36,11 @@ export default function ProjecstExperiencePage() {
               Save and Continue
             </Button>
           </div>
-          <Button
-            variant="info"
-            className="mb-3"
-            onClick={handleAddProjectExperience}
-          >
+          {/* <Button variant="info" onClick={handleAddProjectExperience}>
             + Add Projects
-          </Button>
-          {form.map((index) => (
-            <Form className="form-wrapper border-block" key={index}>
+          </Button> */}
+          {form.map((data, index) => (
+            <Form className="form-wrapper" key={index}>
               <Row>
                 <Col md={6}>
                   <Form.Group
@@ -47,7 +48,7 @@ export default function ProjecstExperiencePage() {
                     controlId="exampleForm.ControlInput1"
                   >
                     <Form.Label>Project Title</Form.Label>
-                    <Form.Control type="text" />
+                    <Form.Control type="text" value={data.project_name} />
                   </Form.Group>
                 </Col>
                 <Col md={6}>
@@ -56,7 +57,7 @@ export default function ProjecstExperiencePage() {
                     controlId="exampleForm.ControlInput1"
                   >
                     <Form.Label>Tool Used</Form.Label>
-                    <Form.Control type="text" placeholder="Text" />
+                    <ul>{/* {data.tools_technologies.map()} */}</ul>
                   </Form.Group>
                 </Col>
               </Row>
@@ -76,10 +77,10 @@ export default function ProjecstExperiencePage() {
               </Row>
               <div className="tab-title-block">
                 <div></div>
-                <Button variant="secondary" disabled>
+                {/* <Button variant="secondary" disabled>
                   {" "}
                   Add
-                </Button>
+                </Button> */}
               </div>
             </Form>
           ))}

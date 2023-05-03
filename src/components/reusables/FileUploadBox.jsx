@@ -45,8 +45,6 @@ export default function FileUploadBox(props) {
   return (
     <div className="uploader">
       <div className="uploader-wrapper" {...getRootProps({ style })}>
-        {/* <img src="/doc-icon.svg" alt="icon" />
-        <img src="/success-croped.gif" alt="icon" /> */}
         <input {...getInputProps()} />
 
         {acceptedFiles.length !== 0 ? (
@@ -54,14 +52,19 @@ export default function FileUploadBox(props) {
             className=" mb-3 d-flex flex-column align-items-center"
             key={acceptedFiles[0].path}
           >
+            <div className="successimage">
             <img src="/success-croped.gif" alt="icon" />
-            <span>File Name: </span>
+            </div>
+            <h4 className="mb-2">File uploaded successfully.</h4>
+            <div className="d-flex">
+            <span style={{marginRight: '8px'}}>File Name: </span>
             <span className="text-secondary">{acceptedFiles[0].path}</span>
+            </div>
           </div>
         ) : (
           <>
             <img src="/doc-icon.svg" alt="icon" />
-            <h3>Drag & drop your {contentType} here.</h3>
+            <h4>Drag & drop your {contentType} here.</h4>
             <small className="text-muted mb-3">{info}</small>
             <Button variant="secondary" type="submit">
               Upload

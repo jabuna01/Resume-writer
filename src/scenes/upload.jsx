@@ -23,7 +23,7 @@ const Resume = () => {
 
               <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Job Description</Form.Label>
-                <Form.Control as="textarea" rows={3} placeholder="Write your Job Discription" />
+                <Form.Control as="textarea" rows={3} placeholder="Write your Job Description" />
               </Form.Group>
             </div>
             <div className="uploader">

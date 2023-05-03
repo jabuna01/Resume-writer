@@ -39,7 +39,7 @@ export default function HomePage() {
   return (
     <>
       <div className="content-wrapper content">
-        <SideNav />
+        <SideNav activeNav={0}/>
 
         <div className="main-content">
           <div className="tab-title-block">

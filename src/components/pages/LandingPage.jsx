@@ -2,9 +2,9 @@ import { Container, Form, Button } from "react-bootstrap";
 import FileUploadBox from "../reusables/FileUploadBox";
 import { useState } from "react";
 import { axiosWithAuth } from "../../services/authentication.service";
-import { responseObj, serverUri } from "../../configs/config";
+import { responseObj, resumeId, serverUri } from "../../configs/config";
 import { useDispatch, useSelector } from "react-redux";
-import { setResponse } from "../reducers/apiResponseReducer";
+import { setResponse, setResumeId } from "../reducers/apiResponseReducer";
 import { useNavigate } from "react-router-dom";
 import Loader from "../reusables/Loader";
 
@@ -20,30 +20,34 @@ export default function LandingPage() {
 
   const handleJobDescriptionChange = (e) => {
     setJobDescription(e.target.value);
+    e.target.style.height = 'auto';
+    e.target.style.height = e.target.scrollHeight + 'px';
   };
 
   const handleBuild = (e) => {
     e.preventDefault();
 
-    // setLoading(true);
+    setLoading(true);
 
-    dispatch(setResponse(responseObj));
-    history("/home-screen");
+    // dispatch(setResponse(responseObj.data));
+    // dispatch(setResumeId(responseObj.id));
+    // history("/home-screen");
     
-    // axiosWithAuth
-    //   .postForm(serverUri + "/upload/", {
-    //     file: file,
-    //     jd: jobDescription
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setLoading(false);
+    axiosWithAuth
+      .postForm(serverUri + "/upload/", {
+        file: file,
+        jd: jobDescription
+      })
+      .then((response) => {
+        console.log(response.data);
+        setLoading(false);
 
-    //     dispatch(setResponse(response.data));
-    //     // dispatch(setDataToLocalStorage(response.data));
-    //     history("/home-screen");
-    //   })
-    //   .catch((err) => console.log(err));
+        dispatch(setResponse(response.data.data));
+        dispatch(setResumeId(response.data.id));
+        // dispatch(setDataToLocalStorage(response.data));
+        history("/home-screen");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -81,7 +85,7 @@ export default function LandingPage() {
                     <Form.Control
                       as="textarea"
                       rows={3}
-                      placeholder="Write your Job Discription"
+                      placeholder="Write your Job Description"
                       onChange={handleJobDescriptionChange}
                     />
                   </Form.Group>
