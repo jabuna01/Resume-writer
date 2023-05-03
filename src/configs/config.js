@@ -4,8 +4,8 @@ export const allowedFileFormats = {
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [],
 };
 
-export const serverUri = "http://localhost:8000";
-// export const serverUri = "http://172.16.4.163:8000"
+// export const serverUri = "http://localhost:8000";
+export const serverUri = "http://172.16.5.173:8000"
 
 export const resumeId = 9;
 

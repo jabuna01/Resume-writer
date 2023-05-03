@@ -28,8 +28,6 @@ export default function PersonalStatementPage() {
     // setRecommendation(psRecommendation.rec_data.personal_statement);
   }, []);
 
-  console.log(recommendation);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updatePersonalStatement(statement));
@@ -65,6 +63,7 @@ export default function PersonalStatementPage() {
                 rows={3}
                 placeholder="Enter your Summary"
                 value={statement}
+                onChange={(e) => setStatement(e.target.value)}
                 style={{ resize: "none", minHeight: "200px" }}
               />
             </Form.Group>
@@ -80,7 +79,7 @@ export default function PersonalStatementPage() {
                   <ul className="recomendation" id="style-3">
                     {recommendation &&
                       recommendation.map((data, index) => (
-                        <li className="recomendation-item">
+                        <li className="recomendation-item" key={index}>
                           <Button
                             variant="outline-secondary"
                             onClick={() => setStatement(data)}

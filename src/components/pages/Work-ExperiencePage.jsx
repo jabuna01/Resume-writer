@@ -9,7 +9,6 @@ import {
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import WorkExperienceList from "./workExperienceList";
 export default function WorkExperiencePage() {
   // const [form, addForm] = useState([]);
   const [work_experience, setWorkexperience] = useState([]);
